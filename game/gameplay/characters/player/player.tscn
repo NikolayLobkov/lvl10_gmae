@@ -66,10 +66,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5359645, 0)
 
 [node name="WeaponManager" type="Node3D" parent="CameraPivot/ViewModel" unique_id=153690424]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0810256, -0.59382534, -1.2041798)
 script = ExtResource("7_y8ruj")
 
 [node name="Gun" parent="CameraPivot/ViewModel/WeaponManager" unique_id=1147345495 instance=ExtResource("8_t4dbo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.20000076, -1)
 
 [node name="Hitbox" type="Area3D" parent="." unique_id=60004313 node_paths=PackedStringArray("health_comp")]
 collision_layer = 8

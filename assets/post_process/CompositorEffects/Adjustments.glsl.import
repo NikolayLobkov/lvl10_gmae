@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://dm6w12rufl872"
+path="res://.godot/imported/Adjustments.glsl-9506acd77d80cf5b0258ae11ac562559.res"
+
+[deps]
+
+source_file="res://assets/post_process/CompositorEffects/Adjustments.glsl"
+dest_files=["res://.godot/imported/Adjustments.glsl-9506acd77d80cf5b0258ae11ac562559.res"]
+
+[params]
+

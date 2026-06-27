@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://c3baoksx22gln"
+path="res://.godot/imported/PostProcess.glsl-d11fbc5d8b960de3e01004e9c9d677cc.res"
+
+[deps]
+
+source_file="res://assets/post_process/CompositorEffects/PostProcess.glsl"
+dest_files=["res://.godot/imported/PostProcess.glsl-d11fbc5d8b960de3e01004e9c9d677cc.res"]
+
+[params]
+

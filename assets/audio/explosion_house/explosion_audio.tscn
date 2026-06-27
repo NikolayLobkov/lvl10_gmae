@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dxrr2ic6ff3tw"]
+
+[ext_resource type="AudioStream" uid="uid://ekrfp72q1m2c" path="res://assets/audio/ExplosionHouse/explosion_impact.ogg" id="1_yis01"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yis01"]
+random_pitch = 1.7817973
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("1_yis01")
+
+[sub_resource type="GDScript" id="GDScript_642md"]
+resource_name = "ground"
+script/source = "extends AudioStreamPlayer3D
+
+var need_delete:=false
+
+func _on_finished() -> void:
+	if need_delete:
+		queue_free()
+"
+
+[node name="ExplosionAudio" type="AudioStreamPlayer3D" unique_id=1655981483]
+stream = SubResource("AudioStreamRandomizer_yis01")
+volume_db = -5.0
+pitch_scale = 2.0
+autoplay = true
+max_distance = 100.0
+bus = &"Sounds"
+script = SubResource("GDScript_642md")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

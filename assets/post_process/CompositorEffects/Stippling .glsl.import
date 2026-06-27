@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://xyti6ngawkth"
+path="res://.godot/imported/Stippling .glsl-160cd39dcae2c995f939482a8adfcbdb.res"
+
+[deps]
+
+source_file="res://assets/post_process/CompositorEffects/Stippling .glsl"
+dest_files=["res://.godot/imported/Stippling .glsl-160cd39dcae2c995f939482a8adfcbdb.res"]
+
+[params]
+

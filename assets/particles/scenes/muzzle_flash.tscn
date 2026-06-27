@@ -1,0 +1,186 @@
+[gd_scene format=3 uid="uid://cxjk3mykqu1xu"]
+
+[ext_resource type="Texture2D" uid="uid://1gro8ysvsx44" path="res://assets/particles/textures/muzzle_flash.png" id="1_g7u0p"]
+[ext_resource type="ArrayMesh" uid="uid://dl5jf8qlhaewl" path="res://assets/particles/meshes/MuzzlePlanes.obj" id="2_mdjl6"]
+[ext_resource type="Texture2D" uid="uid://bnjkwgd5r3qlc" path="res://assets/particles/textures/muzzle_cone.png" id="3_hhp67"]
+[ext_resource type="ArrayMesh" uid="uid://mwhopuwqobq4" path="res://assets/particles/meshes/MuzzleCone.obj" id="4_1t6vi"]
+[ext_resource type="Texture2D" uid="uid://b6y5fnirgpf73" path="res://assets/particles/textures/muzzle_beam.png" id="5_kgp04"]
+
+[sub_resource type="GDScript" id="GDScript_hhp67"]
+script/source = "extends Node3D
+
+
+@onready var muzzle_flash: GPUParticles3D = $MuzzleFlash
+@onready var muzzle_cone: GPUParticles3D = $MuzzleCone
+@onready var beam_cone: GPUParticles3D = $BeamCone
+@onready var gpu_particles_3d: GPUParticles3D = $GPUParticles3D
+
+
+
+func emit() -> void:
+	rotation.z = randf() * PI * 2.0
+	
+	muzzle_flash.restart()
+	muzzle_cone.restart()
+	beam_cone.restart()
+	gpu_particles_3d.restart()
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yynbv"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_g7u0p")
+
+[sub_resource type="Curve" id="Curve_hhp67"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1t6vi"]
+curve = SubResource("Curve_hhp67")
+
+[sub_resource type="Curve" id="Curve_kgp04"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_agqhg"]
+curve = SubResource("Curve_kgp04")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p8ei7"]
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_agqhg")
+color = Color(1.9377497, 1.7113224, 1.3037531, 1)
+alpha_curve = SubResource("CurveTexture_1t6vi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_agqhg"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("3_hhp67")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p8ei7"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("5_kgp04")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_c7mbu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lwobp"]
+curve = SubResource("Curve_c7mbu")
+
+[sub_resource type="Curve" id="Curve_1bm3a"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_homur"]
+curve = SubResource("Curve_1bm3a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6q5sj"]
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_homur")
+color = Color(1.556, 1.3337444, 0.9898702, 1)
+alpha_curve = SubResource("CurveTexture_lwobp")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ffo1d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4v0f4"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("5_kgp04")
+billboard_keep_scale = true
+
+[sub_resource type="Curve" id="Curve_6g0b3"]
+_data = [Vector2(0, 1), 0.0, -2.5168538, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_n8cfn"]
+curve = SubResource("Curve_6g0b3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5iwl6"]
+lifetime_randomness = 1.0
+particle_flag_align_y = true
+direction = Vector3(0, 0, -1)
+spread = 10.0
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.59999996
+color = Color(2.137626, 1.7971818, 1.3590838, 1)
+alpha_curve = SubResource("CurveTexture_n8cfn")
+
+[sub_resource type="QuadMesh" id="QuadMesh_rx88x"]
+size = Vector2(0.12, 1)
+
+[node name="MuzzleFlash" type="Node3D" unique_id=2070648186]
+script = SubResource("GDScript_hhp67")
+
+[node name="MuzzleFlash" type="GPUParticles3D" parent="." unique_id=1827342340]
+material_override = SubResource("StandardMaterial3D_yynbv")
+emitting = false
+amount = 1
+lifetime = 0.1
+one_shot = true
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_p8ei7")
+draw_pass_1 = ExtResource("2_mdjl6")
+
+[node name="MuzzleCone" type="GPUParticles3D" parent="." unique_id=1788381941]
+material_override = SubResource("StandardMaterial3D_agqhg")
+emitting = false
+amount = 1
+lifetime = 0.1
+one_shot = true
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_p8ei7")
+draw_pass_1 = ExtResource("4_1t6vi")
+
+[node name="BeamCone" type="GPUParticles3D" parent="." unique_id=1908836641]
+material_override = SubResource("StandardMaterial3D_p8ei7")
+emitting = false
+amount = 1
+lifetime = 0.1
+one_shot = true
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_6q5sj")
+draw_pass_1 = SubResource("QuadMesh_ffo1d")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1138186327]
+material_override = SubResource("StandardMaterial3D_4v0f4")
+emitting = false
+amount = 20
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.7
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_5iwl6")
+draw_pass_1 = SubResource("QuadMesh_rx88x")

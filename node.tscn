@@ -7,6 +7,72 @@
 [ext_resource type="Environment" uid="uid://i5jfhdg5exje" path="res://data/environments/main.tres" id="3_112p8"]
 [ext_resource type="Material" uid="uid://dookteqwpbl6e" path="res://assets/prototype/M_dark_01.tres" id="3_bss38"]
 [ext_resource type="PackedScene" uid="uid://bxq7jjw8nalql" path="res://game/gameplay/characters/test/char.tscn" id="4_e2u21"]
+[ext_resource type="Script" uid="uid://b6v7g84adx2ru" path="res://assets/post_process/CompositorEffects/Posterization.gd" id="4_wt6go"]
+[ext_resource type="Script" uid="uid://dptojbefdu206" path="res://assets/post_process/CompositorEffects/ChromaticAberration.gd" id="5_436f3"]
+[ext_resource type="Script" uid="uid://8cmem0jpn2k4" path="res://assets/post_process/CompositorEffects/EdgeDetection.gd" id="6_bcos8"]
+[ext_resource type="Script" uid="uid://djayw6v8lant4" path="res://assets/post_process/CompositorEffects/Blur.gd" id="7_cmsyx"]
+[ext_resource type="Script" uid="uid://pbpoy77lwtxj" path="res://assets/post_process/CompositorEffects/NoiseEffect.gd" id="8_feppd"]
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_85l3h"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("4_wt6go")
+levels = 16.0
+metadata/_custom_type_script = "uid://b6v7g84adx2ru"
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_o6fs4"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("5_436f3")
+aberration = 1.5
+metadata/_custom_type_script = "uid://dptojbefdu206"
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_twhnx"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = true
+script = ExtResource("6_bcos8")
+edge_threshold_min = 1.0
+edge_threshold_max = 1.0
+edge_width = 2.0
+edge_color = Color(0, 0, 0, 1)
+background_color = Color(0, 0, 0, 0)
+metadata/_custom_type_script = "uid://8cmem0jpn2k4"
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_j31fo"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("7_cmsyx")
+metadata/_custom_type_script = "uid://djayw6v8lant4"
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_nha2g"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("8_feppd")
+noise_strength = 0.01
+metadata/_custom_type_script = "uid://pbpoy77lwtxj"
+
+[sub_resource type="Compositor" id="Compositor_madbc"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_85l3h"), SubResource("CompositorEffect_o6fs4"), SubResource("CompositorEffect_twhnx"), SubResource("CompositorEffect_j31fo"), SubResource("CompositorEffect_nha2g")])
 
 [node name="Node" type="Node" unique_id=218170005]
 
@@ -25,11 +91,15 @@ sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1118711779]
 environment = ExtResource("3_112p8")
+compositor = SubResource("Compositor_madbc")
 
 [node name="Level" parent="." unique_id=908312502 instance=ExtResource("2_e2u21")]
 
-[node name="Level" parent="Level" index="0" unique_id=1365144898]
+[node name="Level" parent="Level" index="0" unique_id=1750128158]
 surface_material_override/0 = ExtResource("3_bss38")
+
+[node name="StaticBody3D" parent="Level/Level" index="0" unique_id=1404955914]
+visible = false
 
 [node name="Characters" type="Node3D" parent="." unique_id=1847898279]
 

@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://csucvvn7n1g4u"
+path="res://.godot/imported/NoiseEffect.glsl-363fe36db76d8e6e05ede389e2b5dd4e.res"
+
+[deps]
+
+source_file="res://assets/post_process/CompositorEffects/NoiseEffect.glsl"
+dest_files=["res://.godot/imported/NoiseEffect.glsl-363fe36db76d8e6e05ede389e2b5dd4e.res"]
+
+[params]
+

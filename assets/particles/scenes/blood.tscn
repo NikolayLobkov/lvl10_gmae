@@ -1,0 +1,248 @@
+[gd_scene format=3 uid="uid://b5nc7hpw06sua"]
+
+[ext_resource type="Texture2D" uid="uid://suvldjsxfxhk" path="res://assets/particles/textures/blood/blood.png" id="1_7yinl"]
+[ext_resource type="Texture2D" uid="uid://ch7kses83tvtr" path="res://assets/particles/textures/blood/blood_normal.png" id="2_00hm7"]
+[ext_resource type="Texture2D" uid="uid://d1i7yva1t7ifl" path="res://assets/particles/textures/blood/T_Decal_Blood651aas.png" id="3_pdm4q"]
+[ext_resource type="Texture2D" uid="uid://kdg3xj5heyi3" path="res://assets/particles/textures/blood/T_Decal_Blood651aas_N.png" id="4_gilf3"]
+
+[sub_resource type="GDScript" id="GDScript_7yinl"]
+script/source = "extends Node3D
+
+func _ready() -> void:
+	$AnimationPlayer.play()
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	var decal = $Decal.duplicate()
+	get_tree().current_scene.add_child(decal)
+	decal.global_position = self.global_position
+	queue_free()
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a67ia"]
+transparency = 2
+alpha_scissor_threshold = 0.169
+alpha_antialiasing_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("1_7yinl")
+roughness = 0.15
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("2_00hm7")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_t543t"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.11904761, 1), -1.2012259, -1.2012259, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tydg8"]
+curve = SubResource("Curve_t543t")
+
+[sub_resource type="Gradient" id="Gradient_wkvdv"]
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0.19213974, 0.5021834)
+colors = PackedColorArray(0.3589881, 9.505823e-07, 1.6845763e-07, 1, 1.3262677, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fnnvp"]
+gradient = SubResource("Gradient_wkvdv")
+
+[sub_resource type="Curve" id="Curve_6pf71"]
+_data = [Vector2(0, 0), 0.0, 2.9101129, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_v2hjl"]
+curve = SubResource("Curve_6pf71")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uguce"]
+lifetime_randomness = 0.5
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 0.3
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 1, 0)
+spread = 10.0
+initial_velocity_max = 0.5
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 0.39997762
+gravity = Vector3(0, -19.6, 0)
+scale_min = 0.5
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_v2hjl")
+color_ramp = SubResource("GradientTexture1D_fnnvp")
+alpha_curve = SubResource("CurveTexture_tydg8")
+
+[sub_resource type="QuadMesh" id="QuadMesh_fndre"]
+
+[sub_resource type="Gradient" id="Gradient_4goi5"]
+interpolation_mode = 1
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0.99616855)
+colors = PackedColorArray(1.8984075, 0, 1.8984075, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_40547"]
+gradient = SubResource("Gradient_4goi5")
+
+[sub_resource type="Animation" id="Animation_w2pdn"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Decal:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Decal:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Decal:scale:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles3D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GPUParticles3D:one_shot")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_32rrv"]
+resource_name = "decal_blood"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Decal:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.016666668, 0.16666667, 1.1, -0.020476297, -0.6, 0.0033884905, 0.033884905, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0.033333335, 0.2, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Decal:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.016666668, 0.16666667, 1.1, -0.013278177, -0.13278177, 0.0033884905, 0.033884905, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0.033333335, 0.2, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Decal:scale:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.016666668, 0.16666667, 1.1, -0.013278177, -0.13278177, 0.0033884905, 0.033884905, 1, -0.05, 0, 0.05, 0),
+"times": PackedFloat32Array(0.033333335, 0.2, 0.3)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles3D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.23316),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GPUParticles3D:one_shot")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cibvg"]
+_data = {
+&"RESET": SubResource("Animation_w2pdn"),
+&"decal_blood": SubResource("Animation_32rrv")
+}
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_usrls"]
+
+[node name="Blood" type="Node3D" unique_id=1506773189]
+script = SubResource("GDScript_7yinl")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=354953483]
+layers = 2
+material_override = SubResource("StandardMaterial3D_a67ia")
+emitting = false
+amount = 100
+one_shot = true
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_uguce")
+draw_pass_1 = SubResource("QuadMesh_fndre")
+
+[node name="Decal" type="Decal" parent="." unique_id=1321478852]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+texture_albedo = ExtResource("3_pdm4q")
+texture_normal = ExtResource("4_gilf3")
+texture_orm = SubResource("GradientTexture1D_40547")
+cull_mask = 1048573
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2091055269]
+libraries/ = SubResource("AnimationLibrary_cibvg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1096232973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0473319, 0)
+visible = false
+mesh = SubResource("PlaneMesh_usrls")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://n1u0cj1qoyh3"
+path="res://.godot/imported/EdgeDetection.glsl-a27bbe325b1b835413b57484f53ab141.res"
+
+[deps]
+
+source_file="res://assets/post_process/CompositorEffects/EdgeDetection.glsl"
+dest_files=["res://.godot/imported/EdgeDetection.glsl-a27bbe325b1b835413b57484f53ab141.res"]
+
+[params]
+

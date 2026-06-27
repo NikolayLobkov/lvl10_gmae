@@ -1,0 +1,14 @@
+[remap]
+
+importer="glsl"
+type="RDShaderFile"
+uid="uid://cobv6uorcqnxb"
+path="res://.godot/imported/Ascii1.glsl-98213602108b819bf76c75c29e5120b7.res"
+
+[deps]
+
+source_file="res://assets/post_process/CompositorEffects/Ascii1.glsl"
+dest_files=["res://.godot/imported/Ascii1.glsl-98213602108b819bf76c75c29e5120b7.res"]
+
+[params]
+

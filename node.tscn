@@ -22,7 +22,7 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("4_wt6go")
-levels = 16.0
+levels = 24.0
 metadata/_custom_type_script = "uid://b6v7g84adx2ru"
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_o6fs4"]

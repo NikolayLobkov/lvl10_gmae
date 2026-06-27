@@ -75,6 +75,12 @@ metadata/_custom_type_script = "uid://pbpoy77lwtxj"
 [sub_resource type="Compositor" id="Compositor_madbc"]
 compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_85l3h"), SubResource("CompositorEffect_o6fs4"), SubResource("CompositorEffect_twhnx"), SubResource("CompositorEffect_j31fo"), SubResource("CompositorEffect_nha2g")])
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_ok8na"]
+size = Vector2(200, 200)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wt6go"]
+data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
+
 [node name="Node" type="Node" unique_id=218170005]
 
 [node name="Pools" type="Node" parent="." unique_id=67712728]
@@ -96,16 +102,13 @@ compositor = SubResource("Compositor_madbc")
 
 [node name="Level" parent="." unique_id=908312502 instance=ExtResource("2_e2u21")]
 
-[node name="Level" parent="Level" index="0" unique_id=1747334205]
-surface_material_override/0 = ExtResource("3_bss38")
-
-[node name="StaticBody3D" parent="Level/Level" index="0" unique_id=1333706221]
+[node name="TestLevel" parent="Level" index="53" unique_id=1214583650]
 visible = false
 
 [node name="Characters" type="Node3D" parent="." unique_id=1847898279]
 
 [node name="Player" parent="Characters" unique_id=1327017756 instance=ExtResource("2_j2q8x")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.599766, 0, 0.6558094)
 
 [node name="Char" parent="Characters" unique_id=148033756 instance=ExtResource("4_e2u21")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 44)
@@ -125,5 +128,14 @@ transform = Transform3D(0.25881895, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.2588
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1771723498]
 occluder = ExtResource("13_436f3")
 bake_mask = 4293918721
+
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=1242986859]
+material_override = ExtResource("3_bss38")
+mesh = SubResource("PlaneMesh_ok8na")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=959818228]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=1461599170]
+shape = SubResource("ConcavePolygonShape3D_wt6go")
 
 [editable path="Level"]

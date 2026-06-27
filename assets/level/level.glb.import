@@ -41,13 +41,10 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"@MATERIAL:0": {
-"use_external/path": "uid://dookteqwpbl6e"
-}
-},
-"nodes": {
-"PATH:Level": {
-"mesh_instance/cast_shadow": 0
+"Material": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/materials/vertex_color.tres",
+"use_external/path": "uid://bviv3vb1pdcl5"
 }
 }
 }

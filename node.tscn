@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://dookteqwpbl6e" path="res://assets/prototype/M_dark_01.tres" id="1_sy5k4"]
 [ext_resource type="PackedScene" uid="uid://bwyokrser1rrd" path="res://game/gameplay/characters/player/player.tscn" id="2_j2q8x"]
 [ext_resource type="Environment" uid="uid://i5jfhdg5exje" path="res://data/environments/main.tres" id="3_112p8"]
+[ext_resource type="PackedScene" uid="uid://bxq7jjw8nalql" path="res://game/gameplay/characters/test/char.tscn" id="4_e2u21"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_weh01"]
 
@@ -53,19 +54,24 @@ use_collision = true
 size = Vector3(173, 1, 97)
 material = ExtResource("1_sy5k4")
 
-[node name="Player" parent="." unique_id=1327017756 instance=ExtResource("2_j2q8x")]
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1118711779]
 environment = ExtResource("3_112p8")
 
-[node name="level" type="Node3D" parent="." unique_id=605274111]
+[node name="Level" type="Node3D" parent="." unique_id=605274111]
 
-[node name="Plane_033" type="MeshInstance3D" parent="level" unique_id=907717238]
+[node name="Plane_033" type="MeshInstance3D" parent="Level" unique_id=907717238]
 transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, -10, 0, 9.999992)
 material_override = ExtResource("1_sy5k4")
 mesh = SubResource("ArrayMesh_jqo6s")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="level/Plane_033" unique_id=1510282212]
+[node name="StaticBody3D" type="StaticBody3D" parent="Level/Plane_033" unique_id=1510282212]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="level/Plane_033/StaticBody3D" unique_id=1888583696]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Plane_033/StaticBody3D" unique_id=1888583696]
 shape = SubResource("ConcavePolygonShape3D_112p8")
+
+[node name="Characters" type="Node3D" parent="." unique_id=1847898279]
+
+[node name="Player" parent="Characters" unique_id=1327017756 instance=ExtResource("2_j2q8x")]
+
+[node name="Char" parent="Characters" unique_id=148033756 instance=ExtResource("4_e2u21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113, 0, 52)

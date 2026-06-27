@@ -5,14 +5,15 @@
 [ext_resource type="Script" uid="uid://cc8oqox64agf6" path="res://game/gameplay/systems/C_look.gd" id="3_5r3o2"]
 [ext_resource type="Script" uid="uid://bnviqnup0u4nf" path="res://game/gameplay/systems/R_movement_data.gd" id="3_fqfne"]
 [ext_resource type="Script" uid="uid://defy8uifcqmof" path="res://game/gameplay/systems/C_health.gd" id="5_fqfne"]
+[ext_resource type="Script" uid="uid://d0fxh6284gtvf" path="res://game/gameplay/systems/hitbox.gd" id="6_o0sjo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5x802"]
-radius = 10.0
-height = 40.0
+radius = 1.5
+height = 6.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5x802"]
-radius = 10.0
-height = 40.0
+radius = 1.5
+height = 6.0
 radial_segments = 8
 rings = 4
 
@@ -25,8 +26,9 @@ metadata/_custom_type_script = "uid://bnviqnup0u4nf"
 script = ExtResource("1_1jdmm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1735760373]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shape = SubResource("CapsuleShape3D_5x802")
+debug_color = Color(0.9960373, 0, 0.20279518, 0.41960785)
 
 [node name="Mesh" type="MeshInstance3D" parent="CollisionShape3D" unique_id=769840052]
 mesh = SubResource("CapsuleMesh_5x802")
@@ -46,6 +48,18 @@ script = ExtResource("5_fqfne")
 metadata/_custom_type_script = "uid://defy8uifcqmof"
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=149730806]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35.8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.799999, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1046170632]
+
+[node name="Hitbox" type="Area3D" parent="." unique_id=60004313 node_paths=PackedStringArray("health_comp")]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("6_o0sjo")
+health_comp = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://d0fxh6284gtvf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=1715355035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("CapsuleShape3D_5x802")
+debug_color = Color(0.9960373, 0, 0.20279518, 0.41960785)

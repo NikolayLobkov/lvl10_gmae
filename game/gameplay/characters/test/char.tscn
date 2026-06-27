@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bxq7jjw8nalql"]
+
+[ext_resource type="Script" uid="uid://nwxr4q2rifwv" path="res://game/gameplay/systems/C_movement.gd" id="1_wntmd"]
+[ext_resource type="Script" uid="uid://bnviqnup0u4nf" path="res://game/gameplay/systems/R_movement_data.gd" id="2_ajfck"]
+[ext_resource type="Script" uid="uid://defy8uifcqmof" path="res://game/gameplay/systems/C_health.gd" id="3_4ky7p"]
+[ext_resource type="Script" uid="uid://d0fxh6284gtvf" path="res://game/gameplay/systems/hitbox.gd" id="4_dlddw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wntmd"]
+radius = 1.5
+height = 6.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ajfck"]
+radius = 1.5
+height = 6.0
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Resource" id="Resource_xgpjt"]
+script = ExtResource("2_ajfck")
+default_speed = 20.0
+metadata/_custom_type_script = "uid://bnviqnup0u4nf"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4ky7p"]
+radius = 1.5
+height = 6.0
+
+[node name="Char" type="CharacterBody3D" unique_id=148033756]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=708127267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("CapsuleShape3D_wntmd")
+debug_color = Color(0.9960373, 0, 0.20279518, 0.41960785)
+
+[node name="Mesh" type="MeshInstance3D" parent="CollisionShape3D" unique_id=2102665447]
+mesh = SubResource("CapsuleMesh_ajfck")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=2061830610 node_paths=PackedStringArray("actor")]
+script = ExtResource("1_wntmd")
+actor = NodePath("..")
+params = SubResource("Resource_xgpjt")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=684977346]
+script = ExtResource("3_4ky7p")
+metadata/_custom_type_script = "uid://defy8uifcqmof"
+
+[node name="Hitbox" type="Area3D" parent="." unique_id=1791836952 node_paths=PackedStringArray("health_comp")]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("4_dlddw")
+health_comp = NodePath("")
+metadata/_custom_type_script = "uid://d0fxh6284gtvf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=14441134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("CapsuleShape3D_4ky7p")
+debug_color = Color(0.9960373, 0, 0.20279518, 0.41960785)

@@ -66,6 +66,13 @@ sprint={
 ]
 }
 
+[layer_names]
+
+3d_render/layer_1="world"
+3d_render/layer_2="characters"
+3d_render/layer_3="triggers"
+3d_render/layer_4="hitboxes"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dayvqnquvabps"]
+
+[ext_resource type="Script" uid="uid://x33344shtrx1" path="res://game/core/systems/performance_monitor/performance_monitor.gd" id="1_lnaqh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4h8a"]
+bg_color = Color(0, 0, 0, 0.39215687)
+
+[node name="PerformanceMonitor" type="CanvasLayer" unique_id=1858302487]
+layer = 500
+script = ExtResource("1_lnaqh")
+
+[node name="StatsContainer" type="PanelContainer" parent="." unique_id=1307887412]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -152.0
+offset_bottom = 156.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p4h8a")
+
+[node name="StatsDisplay" type="VBoxContainer" parent="StatsContainer" unique_id=2078136389]
+layout_mode = 2
+alignment = 1
+
+[node name="FPSLabel" type="Label" parent="StatsContainer/StatsDisplay" unique_id=698114123]
+layout_mode = 2
+text = "FPS: 100 (0.1 ms)"
+horizontal_alignment = 2
+
+[node name="MemoryLabel" type="Label" parent="StatsContainer/StatsDisplay" unique_id=1811318046]
+layout_mode = 2
+text = "Memory: 100 MB
+VRAM: 100MB"
+horizontal_alignment = 2
+
+[node name="ObjectsLabel" type="Label" parent="StatsContainer/StatsDisplay" unique_id=953870233]
+layout_mode = 2
+text = "Objects: 99999
+Nodes: 99999
+Orphan nodes: 99999
+Resources: 99999"
+horizontal_alignment = 2
+
+[node name="DrawLabel" type="Label" parent="StatsContainer/StatsDisplay" unique_id=751455389]
+layout_mode = 2
+text = "Draw calls: 99999"
+horizontal_alignment = 2
+
+[connection signal="visibility_changed" from="StatsContainer" to="." method="_on_stats_container_visibility_changed"]

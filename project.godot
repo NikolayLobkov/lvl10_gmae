@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Core="*uid://cfae0p7diafgj"
 Gameplay="*uid://c2suvxwosu1ii"
 UIManager="*uid://7yovn8ky2xly"
+PerformanceMonitor="*uid://dayvqnquvabps"
 
 [display]
 

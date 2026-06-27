@@ -22,7 +22,7 @@ rings = 4
 
 [sub_resource type="Resource" id="Resource_xi2yo"]
 script = ExtResource("3_fqfne")
-default_speed = 20.0
+default_speed = 15.0
 jump_force = 7.0
 metadata/_custom_type_script = "uid://bnviqnup0u4nf"
 
@@ -57,7 +57,7 @@ script = ExtResource("5_fqfne")
 metadata/_custom_type_script = "uid://defy8uifcqmof"
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=149730806]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.799999, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5359645, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1046170632]
 

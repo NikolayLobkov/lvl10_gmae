@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bwyokrser1rrd"]
+
+[ext_resource type="Script" uid="uid://bpfkxnl1e18s7" path="res://game/gameplay/characters/player/player.gd" id="1_1jdmm"]
+[ext_resource type="Script" uid="uid://nwxr4q2rifwv" path="res://game/gameplay/systems/C_movement_component.gd" id="2_xi2yo"]
+[ext_resource type="Script" uid="uid://cc8oqox64agf6" path="res://game/gameplay/systems/C_look_component.gd" id="3_5r3o2"]
+[ext_resource type="Script" uid="uid://bnviqnup0u4nf" path="res://game/gameplay/systems/R_movement_data.gd" id="3_fqfne"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5x802"]
+
+[sub_resource type="Resource" id="Resource_xi2yo"]
+script = ExtResource("3_fqfne")
+metadata/_custom_type_script = "uid://bnviqnup0u4nf"
+
+[node name="Player" type="CharacterBody3D" unique_id=1327017756]
+script = ExtResource("1_1jdmm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1735760373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_5x802")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=1702505240 node_paths=PackedStringArray("actor")]
+script = ExtResource("2_xi2yo")
+actor = NodePath("..")
+params = SubResource("Resource_xi2yo")
+
+[node name="LookComponent" type="Node" parent="." unique_id=1035761946 node_paths=PackedStringArray("actor", "pivot")]
+script = ExtResource("3_5r3o2")
+actor = NodePath("..")
+pivot = NodePath("../CameraPivot")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=149730806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1046170632]

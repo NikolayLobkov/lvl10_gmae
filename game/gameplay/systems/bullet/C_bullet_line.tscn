@@ -24,3 +24,5 @@ script = ExtResource("2_v8lrh")
 metadata/_custom_type_script = "uid://cw37cohahnbjf"
 
 [connection signal="timeout" from="FreeTimer" to="." method="_on_free_timer_timeout"]
+[connection signal="create_commanded" from="PooledObjectComponent" to="." method="_on_pooled_object_component_create_commanded"]
+[connection signal="remove_commanded" from="PooledObjectComponent" to="." method="_on_pooled_object_component_remove_commanded"]

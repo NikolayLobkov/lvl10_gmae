@@ -41,7 +41,8 @@ func _physics_process(_delta: float) -> void:
 func weapon_attack() -> void:
 	get_cur_weapon().shoot()
 func weapon_reload() -> void:
-	get_cur_weapon().message.emit(&'request_magazine_data', [])
+	#get_cur_weapon().message.emit(&'request_magazine_data', [])
+	get_cur_weapon().message.emit(&'set_bullets', [999])
 
 func continue_reloading(content: Array) -> void:
 	var weapon: Weapon = get_cur_weapon()

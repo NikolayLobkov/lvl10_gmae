@@ -14,3 +14,5 @@ func _jumping() -> bool:
 	return Input.is_action_just_pressed(&'jump')
 func _attacking() -> bool:
 	return Input.is_action_pressed(&'attack')
+func _reload() -> bool:
+	return Input.is_action_just_pressed(&'reload_weapon')

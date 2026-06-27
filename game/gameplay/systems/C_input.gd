@@ -10,3 +10,4 @@
 @abstract func _sprinting() -> bool
 @abstract func _jumping() -> bool
 @abstract func _attacking() -> bool
+@abstract func _reload() -> bool

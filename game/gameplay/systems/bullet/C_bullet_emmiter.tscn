@@ -10,6 +10,7 @@ script/source = "extends Marker3D
 @export var shoot_audio_stream: AudioStream
 @export var shoot_audio_pitch_scale: float = 1.0
 
+@onready var hit_ray_cast: RayCast3D = $HitRayCast
 @onready var bullets_pool_manager: ObjectPoolManager = $ObjectPoolManager
 #@onready var muzzle_flash: Node3D = $MuzzleFlash
 @onready var shoot_audio: AudioStreamPlayer3D = $ShootAudio
@@ -20,8 +21,16 @@ func shoot(attack_data: AttackData = null) -> void:
 		attack_data = AttackData.new()
 		attack_data.from_position = global_position
 	
-	global_basis = Basis(Quaternion(Vector3.FORWARD, global_position.direction_to(attack_data.target_position)))
-	bullets_pool_manager.pool_create_object(global_position, attack_data.target_position)
+	#global_basis = Basis(Quaternion(Vector3.FORWARD, global_position.direction_to(attack_data.target_position)))
+	
+	var target: Vector3
+	if attack_data.target_position: target = attack_data.target_position
+	else: target = to_global(hit_ray_cast.target_position)
+	
+	hit_ray_cast.target_position = to_local(target)
+	hit_ray_cast.hit(attack_data)
+	bullets_pool_manager.pool_create_object(global_position, target)
+	
 	#muzzle_flash.emit()
 	
 	shoot_audio.stream = shoot_audio_stream
@@ -40,3 +49,4 @@ pool_name = &"bullet_lines"
 metadata/_custom_type_script = "uid://bd85b1ll0jy3x"
 
 [node name="ShootAudio" type="AudioStreamPlayer3D" parent="." unique_id=287798851]
+bus = &"Sfx"

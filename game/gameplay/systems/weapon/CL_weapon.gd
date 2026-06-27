@@ -16,7 +16,7 @@ signal configurate(key: StringName, value: Variant)
 var damage = 10.0
 var is_shooting: bool = false
 
-var shoot_conditions: Dictionary = {} # Cooldown, ammoes, heating
+var shoot_conditions: Dictionary = {} # Cooldown, ammoes, heating, etc.
 
 var target_mode: bool = false
 var target_position := Vector3.ZERO
@@ -54,7 +54,6 @@ func config_setup() -> void:
 	var properties: Dictionary[StringName, Variant] = config.get_properties()
 	
 	for key: StringName in properties.keys():
-		#sendv_message(&'configurate', [key, properties[key]])
 		configurate.emit(key, properties[key])
 	damage = properties[&'damage']
 func get_config_param(key: StringName, default: Variant = null) -> Variant:

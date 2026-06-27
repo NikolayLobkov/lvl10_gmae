@@ -111,10 +111,16 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 44)
 
 [node name="Char2" parent="Characters" unique_id=1241583400 instance=ExtResource("4_e2u21")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, 44)
+transform = Transform3D(0.25881907, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, 0.25881907, -70, 0, 44)
 
 [node name="Char3" parent="Characters" unique_id=1990766961 instance=ExtResource("4_e2u21")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, 57)
+transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -70, 0, 57)
+
+[node name="Char4" parent="Characters" unique_id=1093927472 instance=ExtResource("4_e2u21")]
+transform = Transform3D(-0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, -0.7071068, 48, 0, 117)
+
+[node name="Char5" parent="Characters" unique_id=31591207 instance=ExtResource("4_e2u21")]
+transform = Transform3D(0.25881895, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881895, 48, 0, 104)
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1771723498]
 occluder = ExtResource("13_436f3")

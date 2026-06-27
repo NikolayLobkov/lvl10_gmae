@@ -11,8 +11,13 @@ var ammo: int = 12: set = set_ammo
 func _shoot_request() -> void: pass
 func _shoot_process(_attack_data: AttackData) -> void:
 	ammo -= 1
-func _message(_message_name: StringName, _args: Array) -> void:
-	pass
+func _message(message_name: StringName, args: Array) -> void:
+	match message_name:
+		&'set_bullets':
+			var amount: int = args.get(0)
+			set_ammo(amount)
+		#&'request_magazine_data':
+			#pass
 func _configurate(key: StringName, value: Variant) -> void:
 	match key:
 		&'magazine_size':
@@ -34,6 +39,6 @@ func is_full() -> bool:
 
 # --- SETTERS ---
 func set_ammo(value: int) -> void:
-	ammo = value
+	ammo = min(value, magazine_size)
 	if weapon:
 		weapon.shoot_conditions['have_ammo'] = have_ammo()

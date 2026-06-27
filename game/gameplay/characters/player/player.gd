@@ -20,6 +20,8 @@ func _physics_process(delta: float) -> void:
 	
 	if input_component._attacking():
 		weapon_manager.weapon_attack()
+	if input_component._reload():
+		weapon_manager.weapon_reload()
 
 func _unhandled_input(event: InputEvent) -> void:
 	look_component._input_tick(event)

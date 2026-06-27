@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ds0mxkn0d6y0s"]
+
+[ext_resource type="Script" uid="uid://baq68k5tajx3y" path="res://tmp/stats_label/stats_label.gd" id="1_6c12c"]
+
+[node name="StatsLabel" type="Label3D" unique_id=88703950]
+pixel_size = 0.045
+billboard = 1
+texture_filter = 2
+text = "HP"
+script = ExtResource("1_6c12c")

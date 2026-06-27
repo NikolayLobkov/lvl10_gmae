@@ -1,3 +1,4 @@
+@icon('res://assets/editor_icons/mouse_motion.svg')
 class_name LookComponent extends Node
 
 

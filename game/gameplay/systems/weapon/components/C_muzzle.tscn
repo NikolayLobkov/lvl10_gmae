@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://g0lhxrwssiuf"]
+
+[ext_resource type="Script" uid="uid://d2xahknauxter" path="res://game/gameplay/systems/weapon/components/scripts/muzzle.gd" id="1_hmjii"]
+[ext_resource type="PackedScene" uid="uid://skn6ol08pug3" path="res://game/gameplay/systems/bullet/C_bullet_emmiter.tscn" id="1_obsrc"]
+
+[node name="Muzzle" type="Node3D" unique_id=1410802194]
+script = ExtResource("1_hmjii")
+
+[node name="BulletEmmiter" parent="." unique_id=1972184444 instance=ExtResource("1_obsrc")]

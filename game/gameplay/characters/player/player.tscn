@@ -4,8 +4,11 @@
 [ext_resource type="Script" uid="uid://nwxr4q2rifwv" path="res://game/gameplay/systems/C_movement.gd" id="2_xi2yo"]
 [ext_resource type="Script" uid="uid://cc8oqox64agf6" path="res://game/gameplay/systems/C_look.gd" id="3_5r3o2"]
 [ext_resource type="Script" uid="uid://bnviqnup0u4nf" path="res://game/gameplay/systems/R_movement_data.gd" id="3_fqfne"]
+[ext_resource type="Script" uid="uid://db5dmhjeda45u" path="res://game/gameplay/systems/C_player_input.gd" id="4_6vbn7"]
 [ext_resource type="Script" uid="uid://defy8uifcqmof" path="res://game/gameplay/systems/C_health.gd" id="5_fqfne"]
 [ext_resource type="Script" uid="uid://d0fxh6284gtvf" path="res://game/gameplay/systems/hitbox.gd" id="6_o0sjo"]
+[ext_resource type="Script" uid="uid://dcmbg7eyym0d7" path="res://game/gameplay/systems/C_weapon_manager.gd" id="7_y8ruj"]
+[ext_resource type="PackedScene" uid="uid://t1wt5irhfd71" path="res://game/gameplay/weapons/gun.tscn" id="8_t4dbo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5x802"]
 radius = 1.5
@@ -24,6 +27,7 @@ jump_force = 7.0
 metadata/_custom_type_script = "uid://bnviqnup0u4nf"
 
 [node name="Player" type="CharacterBody3D" unique_id=1327017756]
+collision_layer = 2
 script = ExtResource("1_1jdmm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1735760373]
@@ -39,6 +43,10 @@ script = ExtResource("2_xi2yo")
 actor = NodePath("..")
 params = SubResource("Resource_xi2yo")
 
+[node name="InputComponent" type="Node" parent="." unique_id=1582576188]
+script = ExtResource("4_6vbn7")
+metadata/_custom_type_script = "uid://db5dmhjeda45u"
+
 [node name="LookComponent" type="Node" parent="." unique_id=1035761946 node_paths=PackedStringArray("actor", "pivot")]
 script = ExtResource("3_5r3o2")
 actor = NodePath("..")
@@ -52,6 +60,15 @@ metadata/_custom_type_script = "uid://defy8uifcqmof"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.799999, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1046170632]
+
+[node name="ViewModel" type="Node3D" parent="CameraPivot" unique_id=1322141816]
+
+[node name="WeaponManager" type="Node3D" parent="CameraPivot/ViewModel" unique_id=153690424]
+unique_name_in_owner = true
+script = ExtResource("7_y8ruj")
+
+[node name="Gun" parent="CameraPivot/ViewModel/WeaponManager" unique_id=1147345495 instance=ExtResource("8_t4dbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.20000076, -1)
 
 [node name="Hitbox" type="Area3D" parent="." unique_id=60004313 node_paths=PackedStringArray("health_comp")]
 collision_layer = 8

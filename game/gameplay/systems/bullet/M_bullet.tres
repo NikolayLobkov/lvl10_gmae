@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b4v5lgeprxhpy"]
+
+[ext_resource type="Shader" uid="uid://b3dpq0br8y3i2" path="res://game/gameplay/systems/bullet/SH_bullet_line.gdshader" id="1_bihl8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_bihl8")
+shader_parameter/bullet_color = Color(18.892157, 0, 0, 1)
+shader_parameter/progress = 0.0

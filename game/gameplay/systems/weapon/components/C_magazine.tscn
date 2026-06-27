@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://clmi5yuwv1em4"]
+
+[ext_resource type="Script" uid="uid://5r4w1vnrlynh" path="res://game/gameplay/systems/weapon/components/scripts/magazine.gd" id="1_rkbcy"]
+
+[node name="Magazine" type="Node" unique_id=619019797]
+script = ExtResource("1_rkbcy")

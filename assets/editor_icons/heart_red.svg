@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="16"
+   height="16"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="heart_red.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="25.21875"
+     inkscape:cx="8.802974"
+     inkscape:cy="9.33829"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <path
+     id="path203"
+     style="fill:#fc7f7f;fill-opacity:1;stroke-width:0.117095"
+     d="M 10.886415,2.2215317 A 3.4682571,3.6184098 0 0 0 8.4360284,3.2791867 3.4682571,3.6184098 0 0 0 7.9664659,3.8877943 3.4682571,3.6184098 0 0 0 7.5151389,3.3179372 3.4682571,3.6184098 0 0 0 5.0784292,2.2739586 3.4682571,3.6184098 0 0 0 1.6114177,5.8914125 3.4682571,3.6184098 0 0 0 2.7830443,8.603933 c 0.01178,0.019397 0.024787,0.035478 0.04103,0.052427 l 4.9258462,5.140112 c 0.1182531,0.123375 0.3102783,0.123375 0.4285326,0 L 13.133931,8.624448 c 0.02327,-0.024278 0.04287,-0.05082 0.05698,-0.07978 A 3.4682571,3.6184098 0 0 0 14.353426,5.841265 3.4682571,3.6184098 0 0 0 10.886415,2.2215317 Z" />
+</svg>

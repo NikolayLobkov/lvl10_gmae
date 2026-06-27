@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d20086onqruiw"]
+
+[ext_resource type="Script" uid="uid://bci70lbn47i7d" path="res://game/gameplay/systems/bullet/bullet_line.gd" id="1_vbiih"]
+[ext_resource type="Material" uid="uid://b4v5lgeprxhpy" path="res://game/gameplay/systems/bullet/M_bullet.tres" id="2_0guk0"]
+[ext_resource type="Script" uid="uid://cw37cohahnbjf" path="res://game/core/systems/object_pool/C_polled_object_component.gd" id="2_v8lrh"]
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_5vsig"]
+size = 0.04
+
+[node name="BulletLine" type="Node3D" unique_id=1322232647]
+script = ExtResource("1_vbiih")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1395161135]
+transform = Transform3D(-0.7071066, 7.4620004e-08, 0.7071067, 0.7071067, -3.090862e-08, 0.7071066, 7.461999e-08, 1, -3.0908613e-08, 0, 0, -0.5)
+mesh = SubResource("RibbonTrailMesh_5vsig")
+surface_material_override/0 = ExtResource("2_0guk0")
+
+[node name="FreeTimer" type="Timer" parent="." unique_id=961560228]
+wait_time = 0.5
+one_shot = true
+
+[node name="PooledObjectComponent" type="Node" parent="." unique_id=1586205109]
+script = ExtResource("2_v8lrh")
+metadata/_custom_type_script = "uid://cw37cohahnbjf"
+
+[connection signal="timeout" from="FreeTimer" to="." method="_on_free_timer_timeout"]

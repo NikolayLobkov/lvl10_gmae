@@ -44,6 +44,11 @@ _subresources={
 "@MATERIAL:0": {
 "use_external/path": "uid://dookteqwpbl6e"
 }
+},
+"nodes": {
+"PATH:Level": {
+"mesh_instance/cast_shadow": 0
+}
 }
 }
 gltf/naming_version=2

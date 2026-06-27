@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://skn6ol08pug3"]
+
+[ext_resource type="PackedScene" uid="uid://4oukb6jdngil" path="res://game/gameplay/systems/bullet/C_hit_ray_cast.tscn" id="1_hgs3g"]
+[ext_resource type="Script" uid="uid://bd85b1ll0jy3x" path="res://game/core/systems/object_pool/pool_manager.gd" id="2_kr74a"]
+
+[sub_resource type="GDScript" id="GDScript_t4dbo"]
+script/source = "extends Marker3D
+
+
+@export var shoot_audio_stream: AudioStream
+@export var shoot_audio_pitch_scale: float = 1.0
+
+@onready var bullets_pool_manager: ObjectPoolManager = $ObjectPoolManager
+#@onready var muzzle_flash: Node3D = $MuzzleFlash
+@onready var shoot_audio: AudioStreamPlayer3D = $ShootAudio
+
+
+func shoot(attack_data: AttackData = null) -> void:
+	if not attack_data:
+		attack_data = AttackData.new()
+		attack_data.from_position = global_position
+	
+	global_basis = Basis(Quaternion(Vector3.FORWARD, global_position.direction_to(attack_data.target_position)))
+	bullets_pool_manager.pool_create_object(global_position, attack_data.target_position)
+	#muzzle_flash.emit()
+	
+	shoot_audio.stream = shoot_audio_stream
+	shoot_audio.pitch_scale = shoot_audio_pitch_scale
+	shoot_audio.play()
+"
+
+[node name="BulletEmmiter" type="Marker3D" unique_id=1799333098]
+script = SubResource("GDScript_t4dbo")
+
+[node name="HitRayCast" parent="." unique_id=56463476 instance=ExtResource("1_hgs3g")]
+
+[node name="ObjectPoolManager" type="Node" parent="." unique_id=1857183519]
+script = ExtResource("2_kr74a")
+pool_name = &"bullet_lines"
+metadata/_custom_type_script = "uid://bd85b1ll0jy3x"
+
+[node name="ShootAudio" type="AudioStreamPlayer3D" parent="." unique_id=287798851]

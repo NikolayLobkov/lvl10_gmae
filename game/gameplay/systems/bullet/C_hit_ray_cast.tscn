@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://4oukb6jdngil"]
+
+[ext_resource type="Script" uid="uid://djvxhc7dlyuxr" path="res://game/gameplay/systems/bullet/hit_ray_cast.gd" id="1_x87bb"]
+
+[node name="HitRayCast" type="RayCast3D" unique_id=56463476]
+target_position = Vector3(0, 0, -100)
+collision_mask = 9
+collide_with_areas = true
+script = ExtResource("1_x87bb")

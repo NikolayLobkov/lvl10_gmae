@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dcjuejso7yhra"]
+
+[ext_resource type="Script" uid="uid://x7xmeug7o3of" path="res://game/gameplay/systems/weapon/components/scripts/cooldown.gd" id="1_28x5v"]
+
+[node name="Cooldown" type="Node" unique_id=2098153916]
+script = ExtResource("1_28x5v")

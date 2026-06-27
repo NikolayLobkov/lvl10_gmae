@@ -64,4 +64,25 @@ health_comp = NodePath("../HealthComponent")
 
 [node name="Eva12" parent="." unique_id=1059961078 instance=ExtResource("6_4ky7p")]
 
+[node name="Cube" parent="Eva12/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1059961078, 433593182) index="0" unique_id=1583711648]
+layers = 2
+
+[node name="Cube_001" parent="Eva12/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1059961078, 433593182) index="1" unique_id=726362404]
+layers = 2
+
+[node name="Cube_002" parent="Eva12/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1059961078, 433593182) index="2" unique_id=2110534461]
+layers = 2
+
+[node name="Cylinder" parent="Eva12/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1059961078, 433593182) index="3" unique_id=1254571341]
+layers = 2
+
+[node name="Eva1" parent="Eva12/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1059961078, 433593182) index="4" unique_id=480050323]
+layers = 2
+
+[node name="Sphere" parent="Eva12/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1059961078, 433593182) index="5" unique_id=1248851010]
+layers = 2
+
+[node name="Sphere_001" parent="Eva12/Armature/Skeleton3D" parent_id_path=PackedInt32Array(1059961078, 433593182) index="6" unique_id=385474274]
+layers = 2
+
 [editable path="Eva12"]

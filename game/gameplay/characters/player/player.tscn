@@ -36,6 +36,7 @@ shape = SubResource("CapsuleShape3D_5x802")
 debug_color = Color(0.9960373, 0, 0.20279518, 0.41960785)
 
 [node name="Mesh" type="MeshInstance3D" parent="CollisionShape3D" unique_id=769840052]
+layers = 2
 mesh = SubResource("CapsuleMesh_5x802")
 
 [node name="MovementComponent" type="Node" parent="." unique_id=1702505240 node_paths=PackedStringArray("actor")]

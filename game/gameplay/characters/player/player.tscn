@@ -6,6 +6,14 @@
 [ext_resource type="Script" uid="uid://bnviqnup0u4nf" path="res://game/gameplay/systems/R_movement_data.gd" id="3_fqfne"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5x802"]
+radius = 10.0
+height = 40.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5x802"]
+radius = 10.0
+height = 40.0
+radial_segments = 8
+rings = 4
 
 [sub_resource type="Resource" id="Resource_xi2yo"]
 script = ExtResource("3_fqfne")
@@ -15,8 +23,11 @@ metadata/_custom_type_script = "uid://bnviqnup0u4nf"
 script = ExtResource("1_1jdmm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1735760373]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
 shape = SubResource("CapsuleShape3D_5x802")
+
+[node name="Mesh" type="MeshInstance3D" parent="CollisionShape3D" unique_id=769840052]
+mesh = SubResource("CapsuleMesh_5x802")
 
 [node name="MovementComponent" type="Node" parent="." unique_id=1702505240 node_paths=PackedStringArray("actor")]
 script = ExtResource("2_xi2yo")
@@ -29,6 +40,6 @@ actor = NodePath("..")
 pivot = NodePath("../CameraPivot")
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=149730806]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35.8, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1046170632]

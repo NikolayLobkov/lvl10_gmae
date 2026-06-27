@@ -9,6 +9,7 @@ const GRAVITY := Vector3(0.0, -9.8, 0.0)
 # --- INPUT ---
 var move_direction: Vector2
 var move_amount: float
+var sprinting: bool
 var jumping: bool
 var on_floor: bool
 var basis: Basis
@@ -23,6 +24,7 @@ func _tick(delta: float) -> void:
 	velocity = actor.velocity
 	
 	speed = params.default_speed
+	if sprinting: speed *= params.sprint_mult
 	
 	direction = basis * Vector3(move_direction.x, 0.0, move_direction.y) * move_amount
 	

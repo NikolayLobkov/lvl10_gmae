@@ -10,6 +10,7 @@ func _physics_process(delta: float) -> void:
 	
 	movement_component.move_direction = input_vector.normalized()
 	movement_component.move_amount = input_vector.length()
+	movement_component.sprinting = Input.is_action_pressed(&'sprint')
 	movement_component.basis = basis
 	movement_component.on_floor = is_on_floor()
 	

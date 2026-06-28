@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://b22cf3m4801y4"]
+
+[ext_resource type="Shader" uid="uid://yfkwxulybc2o" path="res://fire_shader.tres" id="1_svysh"]
+[ext_resource type="Texture2D" uid="uid://dfxkjvponc8r" path="res://assets/particles/textures/patterns/T_VFX_Noise_4.PNG" id="2_svysh"]
+[ext_resource type="ArrayMesh" uid="uid://b6t3rxw22m1lh" path="res://assets/particles/meshes/fire_cyllinder.obj" id="3_h2w6r"]
+
+[sub_resource type="Gradient" id="Gradient_tc0wu"]
+offsets = PackedFloat32Array(0, 0.8541667)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x8s4l"]
+gradient = SubResource("Gradient_tc0wu")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_yak7r"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.25297618, 0.7708333, 1)
+colors = PackedColorArray(0.0031915186, 0, 0, 0, 1.7866424, 0.39886454, 0.2155731, 0.8862745, 2.8015788, 1.6284771, 0.73139936, 0.9372549, 1.8247963, 1.0075452, 0.6844459, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l7inu"]
+gradient = SubResource("Gradient_yak7r")
+use_hdr = true
+
+[sub_resource type="Gradient" id="Gradient_a16s0"]
+offsets = PackedFloat32Array(0.4077381, 0.61011904, 0.9255952)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sut7x"]
+gradient = SubResource("Gradient_a16s0")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_61a3n"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bicta"]
+gradient = SubResource("Gradient_61a3n")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_svysh"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1n7fp"]
+gradient = SubResource("Gradient_svysh")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_61a3n"]
+render_priority = 0
+shader = ExtResource("1_svysh")
+shader_parameter/displasment_Speed = Vector2(1.395, 0)
+shader_parameter/displasment_Scale = Vector2(1, 1)
+shader_parameter/displasment_texture = SubResource("GradientTexture2D_bicta")
+shader_parameter/FloatParameter = 1.935
+shader_parameter/Speed = Vector2(0.3, 1.4)
+shader_parameter/Scale = Vector2(1, 1)
+shader_parameter/Texture_Base = ExtResource("2_svysh")
+shader_parameter/Texture_add = SubResource("GradientTexture2D_x8s4l")
+shader_parameter/Texture_substract = SubResource("GradientTexture2D_sut7x")
+shader_parameter/Texture_color = SubResource("GradientTexture1D_l7inu")
+shader_parameter/dissaper_texture = SubResource("GradientTexture2D_1n7fp")
+shader_parameter/step_dissaper = 1.0
+
+[node name="Fire" type="Node3D" unique_id=593500174]
+
+[node name="FireCyllinder" type="MeshInstance3D" parent="." unique_id=121519597]
+material_override = SubResource("ShaderMaterial_61a3n")
+mesh = ExtResource("3_h2w6r")

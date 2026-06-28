@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bksmppvalyc7p"]
+
+[ext_resource type="Script" uid="uid://cd3r76pwbfvlk" path="res://game/gameplay/systems/hitbox_collider.gd" id="1_3k1bp"]
+
+[node name="HitboxCollider" type="CollisionShape3D" unique_id=1518579324]
+debug_color = Color(0.99, 0, 0, 1)
+script = ExtResource("1_3k1bp")

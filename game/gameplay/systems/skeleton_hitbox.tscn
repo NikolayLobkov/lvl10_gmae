@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://fb4xf1n1wye"]
 
 [ext_resource type="Script" uid="uid://d0fxh6284gtvf" path="res://game/gameplay/systems/hitbox.gd" id="1_x0uqj"]
+[ext_resource type="Script" uid="uid://cd3r76pwbfvlk" path="res://game/gameplay/systems/hitbox_collider.gd" id="2_u20ry"]
 
 [sub_resource type="GDScript" id="GDScript_u20ry"]
 script/source = "@tool
@@ -67,65 +68,90 @@ collision_mask = 0
 script = ExtResource("1_x0uqj")
 metadata/_custom_type_script = "uid://d0fxh6284gtvf"
 
-[node name="Spine01Col" type="CollisionShape3D" parent="Hitbox" unique_id=258700431]
+[node name="Spine01Col" type="CollisionShape3D" parent="Hitbox" unique_id=1515531055]
 transform = Transform3D(-6.333015e-08, -0.9892802, -0.14603034, 0.9862959, -0.024095586, 0.1632365, -0.16500495, -0.14402789, 0.9757252, -5.1398425e-15, 4.0780063, 0.0073522483)
 shape = SubResource("CapsuleShape3D_dlddw")
 debug_color = Color(0.7, 0, 0, 1)
+script = ExtResource("2_u20ry")
+metadata/_custom_type_script = "uid://cd3r76pwbfvlk"
 
-[node name="Spine02Col" type="CollisionShape3D" parent="Hitbox" unique_id=690977487]
+[node name="Spine02Col" type="CollisionShape3D" parent="Hitbox" unique_id=1986020354]
 transform = Transform3D(-4.3711776e-08, -0.9892802, -0.14602955, 0.9453764, 0.047603935, -0.32249653, 0.32599044, -0.13805248, 0.9352445, -9.274336e-15, 4.765822, -0.141669)
 shape = SubResource("CapsuleShape3D_jtl4i")
 debug_color = Color(0.7, 0, 0, 1)
+script = ExtResource("2_u20ry")
+metadata/_custom_type_script = "uid://cd3r76pwbfvlk"
 
-[node name="Spine03Col" type="CollisionShape3D" parent="Hitbox" unique_id=325721799]
+[node name="Spine03Col" type="CollisionShape3D" parent="Hitbox" unique_id=797002302]
 transform = Transform3D(-4.3711772e-08, -0.9892802, -0.14602955, 0.53438467, 0.12343028, -0.8361862, 0.84524524, -0.078035824, 0.52865726, -1.163541e-14, 5.6742377, 0.09783428)
 shape = SubResource("CapsuleShape3D_japrb")
 debug_color = Color(0.7, 0, 0, 1)
+script = ExtResource("2_u20ry")
+metadata/_custom_type_script = "uid://cd3r76pwbfvlk"
 
-[node name="HeadCol" type="CollisionShape3D" parent="Hitbox" unique_id=398092649]
+[node name="HeadCol" type="CollisionShape3D" parent="Hitbox" unique_id=186597252]
 transform = Transform3D(-4.3711772e-08, -0.9892802, -0.14602955, 0.58872604, 0.118040554, -0.79967326, 0.8083368, -0.085971236, 0.5824163, -1.1154136e-14, 5.975902, 0.4369793)
 shape = SubResource("SphereShape3D_wv0hg")
 debug_color = Color(0.7, 0, 0, 1)
+script = ExtResource("2_u20ry")
+damage_multiplier = 3.0
+metadata/_custom_type_script = "uid://cd3r76pwbfvlk"
 
-[node name="LArm1Col" type="CollisionShape3D" parent="Hitbox" unique_id=73871034]
+[node name="LArm1Col" type="CollisionShape3D" parent="Hitbox" unique_id=516667542]
 transform = Transform3D(-0.46913403, 0.33982638, -0.8151315, 0.7345882, 0.66249233, -0.14658673, 0.49020377, -0.6675491, -0.56043077, 0.7041829, 5.397037, -0.07908327)
 shape = SubResource("CapsuleShape3D_4ky7p")
 debug_color = Color(0.7, 0, 0, 1)
+script = ExtResource("2_u20ry")
+metadata/_custom_type_script = "uid://cd3r76pwbfvlk"
 
-[node name="RArm1Col" type="CollisionShape3D" parent="Hitbox" unique_id=35108985]
+[node name="RArm1Col" type="CollisionShape3D" parent="Hitbox" unique_id=901015944]
 transform = Transform3D(0.7839234, -0.015611444, -0.62066716, 0.16313347, 0.96973693, 0.18165207, 0.5990473, -0.24365102, 0.7627478, -0.7355673, 5.363701, -0.13634463)
 shape = SubResource("CapsuleShape3D_4ky7p")
 debug_color = Color(0.7, 0, 0, 1)
+script = ExtResource("2_u20ry")
+metadata/_custom_type_script = "uid://cd3r76pwbfvlk"
 
-[node name="LArm2Col" type="CollisionShape3D" parent="Hitbox" unique_id=1366753404]
+[node name="LArm2Col" type="CollisionShape3D" parent="Hitbox" unique_id=693448370]
 transform = Transform3D(-0.6506205, 0.22752549, -0.7245222, 0.756811, 0.115449496, -0.643363, -0.06273537, -0.96690387, -0.24730787, 0.34338546, 4.877211, 0.85157967)
 shape = SubResource("CapsuleShape3D_4ky7p")
 debug_color = Color(0.7, 0, 0, 1)
+script = ExtResource("2_u20ry")
+metadata/_custom_type_script = "uid://cd3r76pwbfvlk"
 
-[node name="RArm2Col" type="CollisionShape3D" parent="Hitbox" unique_id=1846396636]
+[node name="RArm2Col" type="CollisionShape3D" parent="Hitbox" unique_id=924485040]
 transform = Transform3D(-0.7918548, -0.48337457, -0.37325594, 0.5569713, -0.32089353, -0.7660402, 0.250508, -0.814479, 0.52332807, -0.402774, 4.7124715, 0.4615764)
 shape = SubResource("CapsuleShape3D_4ky7p")
 debug_color = Color(0.7, 0, 0, 1)
+script = ExtResource("2_u20ry")
+metadata/_custom_type_script = "uid://cd3r76pwbfvlk"
 
-[node name="LLeg1Col" type="CollisionShape3D" parent="Hitbox" unique_id=1042710907]
+[node name="LLeg1Col" type="CollisionShape3D" parent="Hitbox" unique_id=1965771311]
 transform = Transform3D(-0.11375626, -0.09722447, -0.9887455, 0.4424262, 0.8861188, -0.13803591, 0.8895645, -0.45314544, -0.057787042, 0.30453312, 3.4585922, 0.14297377)
 shape = SubResource("CapsuleShape3D_xgpjt")
 debug_color = Color(0.7, 0, 0, 1)
+script = ExtResource("2_u20ry")
+metadata/_custom_type_script = "uid://cd3r76pwbfvlk"
 
-[node name="RLeg1Col" type="CollisionShape3D" parent="Hitbox" unique_id=909593139]
+[node name="RLeg1Col" type="CollisionShape3D" parent="Hitbox" unique_id=800092268]
 transform = Transform3D(0.22272545, 0.10426654, -0.96929485, 0.43287936, 0.8802941, 0.19416173, 0.87350714, -0.4628285, 0.15092947, -0.29707703, 3.459744, 0.14689909)
 shape = SubResource("CapsuleShape3D_xgpjt")
 debug_color = Color(0.7, 0, 0, 1)
+script = ExtResource("2_u20ry")
+metadata/_custom_type_script = "uid://cd3r76pwbfvlk"
 
-[node name="LLeg2Col" type="CollisionShape3D" parent="Hitbox" unique_id=1238397077]
+[node name="LLeg2Col" type="CollisionShape3D" parent="Hitbox" unique_id=569183816]
 transform = Transform3D(-0.080204576, -0.03323878, -0.99622947, -0.22381891, 0.9745232, -0.014495585, 0.97132856, 0.22181055, -0.085600846, 0.47046694, 1.6824112, 0.34024143)
 shape = SubResource("CapsuleShape3D_p68oq")
 debug_color = Color(0.7, 0, 0, 1)
+script = ExtResource("2_u20ry")
+metadata/_custom_type_script = "uid://cd3r76pwbfvlk"
 
-[node name="RLeg2Col" type="CollisionShape3D" parent="Hitbox" unique_id=1009723056]
+[node name="RLeg2Col" type="CollisionShape3D" parent="Hitbox" unique_id=711834257]
 transform = Transform3D(0.17664868, 0.15191612, -0.972485, -0.23637013, 0.9656521, 0.10791431, 0.9554742, 0.21080154, 0.20649004, -0.53416145, 1.682519, 0.36339363)
 shape = SubResource("CapsuleShape3D_p68oq")
 debug_color = Color(0.7, 0, 0, 1)
+script = ExtResource("2_u20ry")
+metadata/_custom_type_script = "uid://cd3r76pwbfvlk"
 
 [node name="Attachments" type="Node3D" parent="." unique_id=756461040]
 

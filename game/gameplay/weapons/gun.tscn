@@ -28,7 +28,7 @@ config = SubResource("Resource_8ry88")
 metadata/_custom_type_script = "uid://bpdf6diryjvmb"
 
 [node name="Muzzle" parent="." unique_id=1410802194 instance=ExtResource("3_v3q3h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3643939, -0.83852816)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3616349, -1.1502955)
 
 [node name="Cooldown" parent="." unique_id=2098153916 instance=ExtResource("4_6rqp0")]
 
@@ -41,3 +41,4 @@ mesh = ExtResource("6_jmwmr")
 surface_material_override/0 = SubResource("StandardMaterial3D_jmwmr")
 
 [node name="weapon1" parent="." unique_id=324677454 instance=ExtResource("8_lalmn")]
+transform = Transform3D(-1, -7.185904e-16, -8.7422784e-08, 9.905499e-09, 0.9935602, -0.1133057, 8.6859785e-08, -0.1133057, -0.9935602, 0, 0, 0)

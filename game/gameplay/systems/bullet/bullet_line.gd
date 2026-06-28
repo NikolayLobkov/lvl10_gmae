@@ -1,5 +1,5 @@
 @tool
-class_name Line3D extends Node3D
+extends Node3D
 
 
 

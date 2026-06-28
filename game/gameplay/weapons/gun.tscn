@@ -10,7 +10,11 @@
 
 [sub_resource type="Resource" id="Resource_8ry88"]
 script = ExtResource("2_v3q3h")
+damage = 14.0
+cooldown = 0.3
+magazine_size = 16
 shoot_sound = ExtResource("3_lhvdl")
+shoot_sound_pitch_scale = 1.75
 metadata/_custom_type_script = "uid://bgjkxog25kt5g"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmwmr"]

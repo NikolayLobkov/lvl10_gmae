@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://nwxr4q2rifwv" path="res://game/gameplay/systems/C_movement.gd" id="1_wntmd"]
 [ext_resource type="Script" uid="uid://bnviqnup0u4nf" path="res://game/gameplay/systems/R_movement_data.gd" id="2_ajfck"]
 [ext_resource type="Script" uid="uid://defy8uifcqmof" path="res://game/gameplay/systems/C_health.gd" id="3_4ky7p"]
-[ext_resource type="Script" uid="uid://d0fxh6284gtvf" path="res://game/gameplay/systems/hitbox.gd" id="4_dlddw"]
 [ext_resource type="PackedScene" uid="uid://ds0mxkn0d6y0s" path="res://tmp/stats_label/stats_label.tscn" id="5_ajfck"]
 [ext_resource type="PackedScene" uid="uid://c1yu32j4vh7pj" path="res://assets/robots/Eva1.glb" id="6_4ky7p"]
 [ext_resource type="Script" uid="uid://cr16px7e0l3sb" path="res://game/gameplay/characters/test/animation_tree.gd" id="7_dlddw"]
+[ext_resource type="PackedScene" uid="uid://fb4xf1n1wye" path="res://game/gameplay/systems/skeleton_hitbox.tscn" id="8_japrb"]
 [ext_resource type="Script" uid="uid://dbhsxg0cixeb1" path="res://game/gameplay/systems/C_gibs.gd" id="8_jtl4i"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wntmd"]
@@ -23,32 +23,6 @@ rings = 4
 script = ExtResource("2_ajfck")
 default_speed = 20.0
 metadata/_custom_type_script = "uid://bnviqnup0u4nf"
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dlddw"]
-height = 1.0927734
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jtl4i"]
-radius = 0.45117188
-height = 0.90234375
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_japrb"]
-radius = 0.4638672
-height = 0.9277344
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_wv0hg"]
-radius = 0.3591694
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4ky7p"]
-radius = 0.30419922
-height = 1.7758789
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xgpjt"]
-radius = 0.30419922
-height = 1.7758789
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p68oq"]
-radius = 0.30419922
-height = 2.4348145
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ky7p"]
 animation = &"Shoot"
@@ -102,73 +76,6 @@ params = SubResource("Resource_xgpjt")
 [node name="HealthComponent" type="Node" parent="." unique_id=684977346]
 script = ExtResource("3_4ky7p")
 metadata/_custom_type_script = "uid://defy8uifcqmof"
-
-[node name="Hitbox" type="Area3D" parent="." unique_id=1791836952 node_paths=PackedStringArray("health_comp")]
-collision_layer = 8
-collision_mask = 0
-script = ExtResource("4_dlddw")
-health_comp = NodePath("../HealthComponent")
-metadata/_custom_type_script = "uid://d0fxh6284gtvf"
-
-[node name="Spine01Col" type="CollisionShape3D" parent="Hitbox" unique_id=1282212596]
-transform = Transform3D(-6.333015e-08, -0.9892802, -0.14603034, 0.9862959, -0.024095586, 0.1632365, -0.16500495, -0.14402789, 0.9757252, -5.1398425e-15, 4.0780063, 0.0073522483)
-shape = SubResource("CapsuleShape3D_dlddw")
-debug_color = Color(0.7, 0, 0, 1)
-
-[node name="Spine02Col" type="CollisionShape3D" parent="Hitbox" unique_id=434646065]
-transform = Transform3D(-4.3711776e-08, -0.9892802, -0.14602955, 0.9453764, 0.047603935, -0.32249653, 0.32599044, -0.13805248, 0.9352445, -9.274336e-15, 4.765822, -0.141669)
-shape = SubResource("CapsuleShape3D_jtl4i")
-debug_color = Color(0.7, 0, 0, 1)
-
-[node name="Spine03Col" type="CollisionShape3D" parent="Hitbox" unique_id=1751672339]
-transform = Transform3D(-4.3711772e-08, -0.9892802, -0.14602955, 0.53438467, 0.12343028, -0.8361862, 0.84524524, -0.078035824, 0.52865726, -1.163541e-14, 5.6742377, 0.09783428)
-shape = SubResource("CapsuleShape3D_japrb")
-debug_color = Color(0.7, 0, 0, 1)
-
-[node name="HeadCol" type="CollisionShape3D" parent="Hitbox" unique_id=251716965]
-transform = Transform3D(-4.3711772e-08, -0.9892802, -0.14602955, 0.58872604, 0.118040554, -0.79967326, 0.8083368, -0.085971236, 0.5824163, -1.1154136e-14, 5.975902, 0.4369793)
-shape = SubResource("SphereShape3D_wv0hg")
-debug_color = Color(0.7, 0, 0, 1)
-
-[node name="LArm1Col" type="CollisionShape3D" parent="Hitbox" unique_id=1828140659]
-transform = Transform3D(-0.46913403, 0.33982638, -0.8151315, 0.7345882, 0.66249233, -0.14658673, 0.49020377, -0.6675491, -0.56043077, 0.7041829, 5.397037, -0.07908327)
-shape = SubResource("CapsuleShape3D_4ky7p")
-debug_color = Color(0.7, 0, 0, 1)
-
-[node name="RArm1Col" type="CollisionShape3D" parent="Hitbox" unique_id=835597027]
-transform = Transform3D(0.7839234, -0.015611444, -0.62066716, 0.16313347, 0.96973693, 0.18165207, 0.5990473, -0.24365102, 0.7627478, -0.7355673, 5.363701, -0.13634463)
-shape = SubResource("CapsuleShape3D_4ky7p")
-debug_color = Color(0.7, 0, 0, 1)
-
-[node name="LArm2Col" type="CollisionShape3D" parent="Hitbox" unique_id=653986428]
-transform = Transform3D(-0.6506205, 0.22752549, -0.7245222, 0.756811, 0.115449496, -0.643363, -0.06273537, -0.96690387, -0.24730787, 0.34338546, 4.877211, 0.85157967)
-shape = SubResource("CapsuleShape3D_4ky7p")
-debug_color = Color(0.7, 0, 0, 1)
-
-[node name="RArm2Col" type="CollisionShape3D" parent="Hitbox" unique_id=1641236730]
-transform = Transform3D(-0.7918548, -0.48337457, -0.37325594, 0.5569713, -0.32089353, -0.7660402, 0.250508, -0.814479, 0.52332807, -0.402774, 4.7124715, 0.4615764)
-shape = SubResource("CapsuleShape3D_4ky7p")
-debug_color = Color(0.7, 0, 0, 1)
-
-[node name="LLeg1Col" type="CollisionShape3D" parent="Hitbox" unique_id=1662666957]
-transform = Transform3D(-0.11375626, -0.09722447, -0.9887455, 0.4424262, 0.8861188, -0.13803591, 0.8895645, -0.45314544, -0.057787042, 0.30453312, 3.4585922, 0.14297377)
-shape = SubResource("CapsuleShape3D_xgpjt")
-debug_color = Color(0.7, 0, 0, 1)
-
-[node name="RLeg1Col" type="CollisionShape3D" parent="Hitbox" unique_id=233265780]
-transform = Transform3D(0.22272545, 0.10426654, -0.96929485, 0.43287936, 0.8802941, 0.19416173, 0.87350714, -0.4628285, 0.15092947, -0.29707703, 3.459744, 0.14689909)
-shape = SubResource("CapsuleShape3D_xgpjt")
-debug_color = Color(0.7, 0, 0, 1)
-
-[node name="LLeg2Col" type="CollisionShape3D" parent="Hitbox" unique_id=1794476442]
-transform = Transform3D(-0.080204576, -0.03323878, -0.99622947, -0.22381891, 0.9745232, -0.014495585, 0.97132856, 0.22181055, -0.085600846, 0.47046694, 1.6824112, 0.34024143)
-shape = SubResource("CapsuleShape3D_p68oq")
-debug_color = Color(0.7, 0, 0, 1)
-
-[node name="RLeg2Col" type="CollisionShape3D" parent="Hitbox" unique_id=1452411825]
-transform = Transform3D(0.17664868, 0.15191612, -0.972485, -0.23637013, 0.9656521, 0.10791431, 0.9554742, 0.21080154, 0.20649004, -0.53416145, 1.682519, 0.36339363)
-shape = SubResource("CapsuleShape3D_p68oq")
-debug_color = Color(0.7, 0, 0, 1)
 
 [node name="StatsLabel" parent="." unique_id=88703950 node_paths=PackedStringArray("health_comp") instance=ExtResource("5_ajfck")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
@@ -247,151 +154,61 @@ layers = 2
 [node name="Sphere_001" parent="Eva12/Armature/Skeleton3D" index="6" unique_id=385474274]
 layers = 2
 
-[node name="Attachments" type="Node3D" parent="." unique_id=1248695302]
-
-[node name="Spine01" type="BoneAttachment3D" parent="Attachments" unique_id=384126602]
-transform = Transform3D(1, -7.381066e-15, 6.104143e-16, 6.6906616e-15, 0.9516241, 0.30726415, -2.924061e-15, -0.30726415, 0.9516243, -5.1398425e-15, 4.0780063, 0.0073522483)
-bone_name = "Bone.001"
-bone_idx = 8
-use_external_skeleton = true
-external_skeleton = NodePath("../../Eva12/Armature/Skeleton3D")
-
-[node name="RT" type="RemoteTransform3D" parent="Attachments/Spine01" unique_id=1512680198]
-transform = Transform3D(-6.333014e-08, -0.9892802, -0.14603034, 0.9892833, 0.021324662, -0.14446558, 0.14603068, -0.14446414, 0.9786805, 0, 0, 0)
-remote_path = NodePath("../../../Hitbox/Spine01Col")
-
-[node name="Spine02" type="BoneAttachment3D" parent="Attachments" unique_id=2103801651]
-transform = Transform3D(1, -2.912959e-15, 5.260132e-15, 3.68739e-15, 0.9828432, -0.18444166, -4.707854e-15, 0.18444172, 0.98284346, -9.626016e-15, 4.6563983, -0.17940134)
-bone_name = "Bone.002"
-bone_idx = 9
-use_external_skeleton = true
-external_skeleton = NodePath("../../Eva12/Armature/Skeleton3D")
-
-[node name="RT" type="RemoteTransform3D" parent="Attachments/Spine02" unique_id=590420035]
-transform = Transform3D(-4.3711772e-08, -0.9892802, -0.14602955, 0.98928344, 0.021324592, -0.1444656, 0.14603068, -0.14446414, 0.97868073, 5.963205e-16, 0.11450577, 0.016902685)
-remote_path = NodePath("../../../Hitbox/Spine02Col")
-
-[node name="Spine03" type="BoneAttachment3D" parent="Attachments" unique_id=342240628]
-transform = Transform3D(1, 1.157788e-15, 5.624658e-15, 3.3635526e-15, 0.65208524, -0.7581454, -4.620767e-15, 0.7581457, 0.6520853, -1.2459377e-14, 5.612385, 3.874302e-07)
-bone_name = "Bone.003"
-bone_idx = 10
-use_external_skeleton = true
-external_skeleton = NodePath("../../Eva12/Armature/Skeleton3D")
-
-[node name="RT" type="RemoteTransform3D" parent="Attachments/Spine03" unique_id=1455240702]
-transform = Transform3D(-4.3711772e-08, -0.9892802, -0.14602955, 0.9892833, 0.021324575, -0.14446566, 0.14603058, -0.14446416, 0.97868073, 5.963222e-16, 0.11450577, 0.016902447)
-remote_path = NodePath("../../../Hitbox/Spine03Col")
-
-[node name="Head" type="BoneAttachment3D" parent="Attachments" unique_id=1450071264]
-transform = Transform3D(1, 7.714272e-16, 5.6880575e-15, 3.3734216e-15, 0.70045424, -0.7136972, -4.6100276e-15, 0.71369755, 0.70045424, -1.1934933e-14, 5.907759, 0.34341744)
-bone_name = "Bone.005"
-bone_idx = 12
-use_external_skeleton = true
-external_skeleton = NodePath("../../Eva12/Armature/Skeleton3D")
-
-[node name="RT" type="RemoteTransform3D" parent="Attachments/Head" unique_id=148301344]
-transform = Transform3D(-4.3711772e-08, -0.9892802, -0.14602955, 0.9892833, 0.021324575, -0.14446566, 0.14603058, -0.14446416, 0.97868073, 5.963222e-16, 0.11450577, 0.016902447)
-remote_path = NodePath("../../../Hitbox/HeadCol")
-
-[node name="LArm1" type="BoneAttachment3D" parent="Attachments" unique_id=1559928510]
-transform = Transform3D(0.8052801, -0.34423414, 0.4827275, 0.21418491, -0.59030175, -0.7782467, 0.5528538, 0.7301001, -0.40162885, 0.7354405, 5.477784, -0.15589535)
-bone_name = "Arm1.L"
-bone_idx = 13
-use_external_skeleton = true
-external_skeleton = NodePath("../../Eva12/Armature/Skeleton3D")
-
-[node name="RT" type="RemoteTransform3D" parent="Attachments/LArm1" unique_id=1960154130]
-transform = Transform3D(0.050564602, 0.046494275, -0.9976436, 0.08576095, -0.99542844, -0.042044103, -0.99503523, -0.08343217, -0.05432053, 0, 0.11450553, 0.016902208)
-remote_path = NodePath("../../../Hitbox/LArm1Col")
-
-[node name="RArm1" type="BoneAttachment3D" parent="Attachments" unique_id=1898342960]
-transform = Transform3D(0.6581105, 0.108865276, -0.7450088, -0.12788606, -0.9589505, -0.2530972, -0.74198, 0.26184243, -0.6171736, -0.7354405, 5.477784, -0.15589535)
-bone_name = "Arm1.R"
-bone_idx = 34
-use_external_skeleton = true
-external_skeleton = NodePath("../../Eva12/Armature/Skeleton3D")
-
-[node name="RT" type="RemoteTransform3D" parent="Attachments/RArm1" unique_id=2070917543]
-transform = Transform3D(0.05056465, 0.046494283, -0.99764335, 0.08576104, -0.99542826, -0.042044807, -0.99503505, -0.08343223, -0.054320995, 5.963222e-16, 0.11450577, 0.016902447)
-remote_path = NodePath("../../../Hitbox/RArm1Col")
-
-[node name="LArm2" type="BoneAttachment3D" parent="Attachments" unique_id=554988975]
-transform = Transform3D(0.7004874, -0.25182074, 0.6677594, 0.68547523, -0.022967428, -0.7277331, 0.19859472, 0.96750104, 0.1565283, 0.4077872, 4.9159155, 0.53903806)
-bone_name = "Arm2.L"
-bone_idx = 14
-use_external_skeleton = true
-external_skeleton = NodePath("../../Eva12/Armature/Skeleton3D")
-
-[node name="RT" type="RemoteTransform3D" parent="Attachments/LArm2" unique_id=869892218]
-transform = Transform3D(0.05056465, 0.046494283, -0.99764335, 0.08576104, -0.99542826, -0.042044807, -0.99503505, -0.08343223, -0.054320995, -0.00957442, 0.31949115, 0.034083378)
-remote_path = NodePath("../../../Hitbox/LArm2Col")
-
-[node name="RArm2" type="BoneAttachment3D" parent="Attachments" unique_id=679381305]
-transform = Transform3D(0.3098585, 0.4289481, 0.8485226, 0.7774699, 0.39940026, -0.4858179, -0.547291, 0.81023604, -0.20973623, -0.63181907, 4.5650234, 0.09333494)
-bone_name = "Arm2.R"
-bone_idx = 35
-use_external_skeleton = true
-external_skeleton = NodePath("../../Eva12/Armature/Skeleton3D")
-
-[node name="RT" type="RemoteTransform3D" parent="Attachments/RArm2" unique_id=956715351]
-transform = Transform3D(0.05056465, 0.046494283, -0.99764335, 0.08576104, -0.99542826, -0.042044807, -0.99503505, -0.08343223, -0.054320995, -0.01592719, 0.45550197, 0.045483198)
-remote_path = NodePath("../../../Hitbox/RArm2Col")
-
-[node name="LLeg1" type="BoneAttachment3D" parent="Attachments" unique_id=990065820]
-transform = Transform3D(0.97617584, 0.14419575, 0.16213676, 0.19743036, -0.9002509, -0.38803273, 0.09001111, 0.4107989, -0.90727186, 0.24719895, 3.926035, -0.09386349)
-bone_name = "Leg1.L"
-bone_idx = 55
-use_external_skeleton = true
-external_skeleton = NodePath("../../Eva12/Armature/Skeleton3D")
-
-[node name="RT" type="RemoteTransform3D" parent="Attachments/LLeg1" unique_id=1510090530]
-transform = Transform3D(0.05637294, 0.03925045, -0.9976434, -0.049265675, -0.99790037, -0.042044807, -0.9971968, 0.051519334, -0.054320995, -0.0150011685, 0.5263756, -0.024196725)
-remote_path = NodePath("../../../Hitbox/LLeg1Col")
-
-[node name="RLeg1" type="BoneAttachment3D" parent="Attachments" unique_id=798639363]
-transform = Transform3D(0.9836481, -0.0742669, -0.16407545, -0.1347476, -0.9079352, -0.3968579, -0.11949652, 0.41247734, -0.9030961, -0.24719895, 3.926035, -0.09386349)
-bone_name = "Leg1.R"
-bone_idx = 58
-use_external_skeleton = true
-external_skeleton = NodePath("../../Eva12/Armature/Skeleton3D")
-
-[node name="RT" type="RemoteTransform3D" parent="Attachments/RLeg1" unique_id=1184557283]
-transform = Transform3D(0.05637294, 0.03925045, -0.9976434, -0.049265675, -0.99790037, -0.042044807, -0.9971968, 0.051519334, -0.054320995, -0.0150011685, 0.5263756, -0.024196725)
-remote_path = NodePath("../../../Hitbox/RLeg1Col")
-
-[node name="LLeg2" type="BoneAttachment3D" parent="Attachments" unique_id=553782998]
-transform = Transform3D(0.9880296, 0.07998105, 0.13191135, 0.039297726, -0.95738167, 0.28613976, 0.14917526, -0.2775308, -0.9490646, 0.47672582, 2.4930398, 0.5600351)
-bone_name = "Leg2.L"
-bone_idx = 56
-use_external_skeleton = true
-external_skeleton = NodePath("../../Eva12/Armature/Skeleton3D")
-
-[node name="RT" type="RemoteTransform3D" parent="Attachments/LLeg2" unique_id=1678005925]
-transform = Transform3D(0.056858107, 0.03854429, -0.99764335, -0.061708197, -0.9972084, -0.042044807, -0.9964767, 0.06395281, -0.054321, -0.070827596, 0.83658, -0.024180375)
-remote_path = NodePath("../../../Hitbox/LLeg2Col")
-
-[node name="RLeg2" type="BoneAttachment3D" parent="Attachments" unique_id=2076089878]
-transform = Transform3D(0.9860821, -0.1215051, -0.11348389, -0.08387795, -0.95290744, 0.29142997, -0.1435499, -0.27785498, -0.9498368, -0.36541498, 2.4808083, 0.5627068)
-bone_name = "Leg2.R"
-bone_idx = 59
-use_external_skeleton = true
-external_skeleton = NodePath("../../Eva12/Armature/Skeleton3D")
-
-[node name="RT" type="RemoteTransform3D" parent="Attachments/RLeg2" unique_id=1371138007]
-transform = Transform3D(0.056858107, 0.03854429, -0.99764335, -0.061708197, -0.9972084, -0.042044807, -0.9964767, 0.06395281, -0.054321, -0.070827596, 0.83658, -0.024180375)
-remote_path = NodePath("../../../Hitbox/RLeg2Col")
-
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=191253665]
 root_node = NodePath("../Eva12")
 tree_root = SubResource("AnimationNodeBlendTree_5x802")
 anim_player = NodePath("../Eva12/AnimationPlayer")
-parameters/WalkAmount/blend_position = 2.638794099489301e-307
+parameters/WalkAmount/blend_position = 0.0
 parameters/Shooting/blend_amount = 0.0
 script = ExtResource("7_dlddw")
 
 [node name="GibsComponent" type="Node" parent="." unique_id=499562993 node_paths=PackedStringArray("skeleton", "hitbox")]
 script = ExtResource("8_jtl4i")
 skeleton = NodePath("../Eva12/Armature/Skeleton3D")
-hitbox = NodePath("../Hitbox")
+hitbox = NodePath("../Hitbox/Hitbox")
+
+[node name="Hitbox" parent="." unique_id=2015836174 node_paths=PackedStringArray("health_comp", "skeleton") instance=ExtResource("8_japrb")]
+health_comp = NodePath("../HealthComponent")
+skeleton = NodePath("../Eva12/Armature/Skeleton3D")
+
+[node name="Hitbox" parent="Hitbox" index="0" unique_id=1257513742 node_paths=PackedStringArray("health_comp")]
+health_comp = NodePath("../../HealthComponent")
+
+[node name="Spine01" parent="Hitbox/Attachments" parent_id_path=PackedInt32Array(2015836174, 756461040) index="0" unique_id=1522514285]
+external_skeleton = NodePath("../Eva12/Armature/Skeleton3D")
+
+[node name="Spine02" parent="Hitbox/Attachments" parent_id_path=PackedInt32Array(2015836174, 756461040) index="1" unique_id=1129414245]
+external_skeleton = NodePath("../Eva12/Armature/Skeleton3D")
+
+[node name="Spine03" parent="Hitbox/Attachments" parent_id_path=PackedInt32Array(2015836174, 756461040) index="2" unique_id=1466841157]
+external_skeleton = NodePath("../Eva12/Armature/Skeleton3D")
+
+[node name="Head" parent="Hitbox/Attachments" parent_id_path=PackedInt32Array(2015836174, 756461040) index="3" unique_id=101479613]
+external_skeleton = NodePath("../Eva12/Armature/Skeleton3D")
+
+[node name="LArm1" parent="Hitbox/Attachments" parent_id_path=PackedInt32Array(2015836174, 756461040) index="4" unique_id=556392095]
+external_skeleton = NodePath("../Eva12/Armature/Skeleton3D")
+
+[node name="RArm1" parent="Hitbox/Attachments" parent_id_path=PackedInt32Array(2015836174, 756461040) index="5" unique_id=180068307]
+external_skeleton = NodePath("../Eva12/Armature/Skeleton3D")
+
+[node name="LArm2" parent="Hitbox/Attachments" parent_id_path=PackedInt32Array(2015836174, 756461040) index="6" unique_id=1090296537]
+external_skeleton = NodePath("../Eva12/Armature/Skeleton3D")
+
+[node name="RArm2" parent="Hitbox/Attachments" parent_id_path=PackedInt32Array(2015836174, 756461040) index="7" unique_id=31448501]
+external_skeleton = NodePath("../Eva12/Armature/Skeleton3D")
+
+[node name="LLeg1" parent="Hitbox/Attachments" parent_id_path=PackedInt32Array(2015836174, 756461040) index="8" unique_id=707064748]
+external_skeleton = NodePath("../Eva12/Armature/Skeleton3D")
+
+[node name="RLeg1" parent="Hitbox/Attachments" parent_id_path=PackedInt32Array(2015836174, 756461040) index="9" unique_id=1472268521]
+external_skeleton = NodePath("../Eva12/Armature/Skeleton3D")
+
+[node name="LLeg2" parent="Hitbox/Attachments" parent_id_path=PackedInt32Array(2015836174, 756461040) index="10" unique_id=1321708097]
+external_skeleton = NodePath("../Eva12/Armature/Skeleton3D")
+
+[node name="RLeg2" parent="Hitbox/Attachments" parent_id_path=PackedInt32Array(2015836174, 756461040) index="11" unique_id=621421992]
+external_skeleton = NodePath("../Eva12/Armature/Skeleton3D")
 
 [editable path="Eva12"]
+[editable path="Hitbox"]

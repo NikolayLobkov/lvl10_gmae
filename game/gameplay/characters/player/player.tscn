@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://db5dmhjeda45u" path="res://game/gameplay/systems/C_player_input.gd" id="4_6vbn7"]
 [ext_resource type="Script" uid="uid://defy8uifcqmof" path="res://game/gameplay/systems/C_health.gd" id="5_fqfne"]
 [ext_resource type="Script" uid="uid://d0fxh6284gtvf" path="res://game/gameplay/systems/hitbox.gd" id="6_o0sjo"]
+[ext_resource type="Script" uid="uid://cgkkuc6vu3t0j" path="res://game/gameplay/characters/player/camera_effects.gd" id="7_ir5h3"]
 [ext_resource type="Script" uid="uid://dcmbg7eyym0d7" path="res://game/gameplay/systems/C_weapon_manager.gd" id="7_y8ruj"]
 [ext_resource type="PackedScene" uid="uid://t1wt5irhfd71" path="res://game/gameplay/weapons/gun.tscn" id="8_t4dbo"]
 [ext_resource type="Script" uid="uid://n7xtuomv2h21" path="res://game/gameplay/characters/player/animation_tree.gd" id="10_07icc"]
@@ -94,8 +95,13 @@ metadata/_custom_type_script = "uid://defy8uifcqmof"
 [node name="CameraPivot" type="Node3D" parent="." unique_id=149730806]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5359645, 0)
 
-[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1046170632]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29235315, -0.37402955)
+[node name="CameraEffects" type="Node" parent="CameraPivot" unique_id=1040710276]
+script = ExtResource("7_ir5h3")
+
+[node name="1" type="Node3D" parent="CameraPivot" unique_id=416427349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38652706, -0.25768447)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/1" unique_id=1046170632]
 
 [node name="ViewModel" type="Node3D" parent="CameraPivot" unique_id=1322141816]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24024248, 0)

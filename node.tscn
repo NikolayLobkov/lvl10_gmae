@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d20086onqruiw" path="res://game/gameplay/systems/bullet/C_bullet_line.tscn" id="2_l6pdb"]
 [ext_resource type="Environment" uid="uid://i5jfhdg5exje" path="res://data/environments/main.tres" id="3_112p8"]
 [ext_resource type="Material" uid="uid://dookteqwpbl6e" path="res://assets/prototype/M_dark_01.tres" id="3_bss38"]
+[ext_resource type="Script" uid="uid://3vfigsefnhcm" path="res://assets/post_process/CompositorEffects/Adjustments.gd" id="4_bcos8"]
 [ext_resource type="PackedScene" uid="uid://bxq7jjw8nalql" path="res://game/gameplay/characters/test/char.tscn" id="4_e2u21"]
 [ext_resource type="Script" uid="uid://b6v7g84adx2ru" path="res://assets/post_process/CompositorEffects/Posterization.gd" id="4_wt6go"]
 [ext_resource type="Script" uid="uid://dptojbefdu206" path="res://assets/post_process/CompositorEffects/ChromaticAberration.gd" id="5_436f3"]
@@ -13,6 +14,18 @@
 [ext_resource type="Script" uid="uid://djayw6v8lant4" path="res://assets/post_process/CompositorEffects/Blur.gd" id="7_cmsyx"]
 [ext_resource type="Script" uid="uid://pbpoy77lwtxj" path="res://assets/post_process/CompositorEffects/NoiseEffect.gd" id="8_feppd"]
 [ext_resource type="ArrayOccluder3D" uid="uid://dxya1hkykqysl" path="res://data/occluders/level.occ" id="13_436f3"]
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_1q4is"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("4_bcos8")
+brightness = 1.43
+saturation = 1.65
+metadata/_custom_type_script = "uid://3vfigsefnhcm"
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_85l3h"]
 resource_local_to_scene = false
@@ -73,7 +86,7 @@ noise_strength = 0.01
 metadata/_custom_type_script = "uid://pbpoy77lwtxj"
 
 [sub_resource type="Compositor" id="Compositor_madbc"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_85l3h"), SubResource("CompositorEffect_o6fs4"), SubResource("CompositorEffect_twhnx"), SubResource("CompositorEffect_j31fo"), SubResource("CompositorEffect_nha2g")])
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_1q4is"), SubResource("CompositorEffect_85l3h"), SubResource("CompositorEffect_o6fs4"), SubResource("CompositorEffect_twhnx"), SubResource("CompositorEffect_j31fo"), SubResource("CompositorEffect_nha2g")])
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ok8na"]
 size = Vector2(200, 200)

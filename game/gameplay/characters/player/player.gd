@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 	
 	animation_tree.move_amount = sqrt((velocity.x * velocity.x + velocity.z * velocity.z) / movement_component.params.default_speed)
 	
+	animation_tree.shooting = input_component._attacking()
 	
 	#animation_tree.move_amount = velocity.normalized().dot(basis.z)
 	#print(velocity.normalized().dot(basis.z))

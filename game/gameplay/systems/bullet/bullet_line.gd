@@ -22,7 +22,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	update()
+	#update()
 	if not Engine.is_editor_hint():
 		if pooled_object_component.is_active:
 			progress += delta * 0.5 / mesh.scale.y * 100.0

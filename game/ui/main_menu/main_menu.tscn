@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://3rd5xpo8keqt"]
+
+[ext_resource type="Theme" uid="uid://4h7l1l6wl1p5" path="res://data/themes/main.tres" id="1_gof3u"]
+
+[node name="MainMenu" type="Control" unique_id=1892307824]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gof3u")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=985927828]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1483764475]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=827978660]
+layout_mode = 2
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=358534235]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="TitleGame1" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=652892550]
+layout_mode = 2
+text = "Название"
+
+[node name="TitleGame2" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1942414065]
+layout_mode = 2
+text = "Игры"
+
+[node name="TitleGame3" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=1176077105]
+layout_mode = 2
+text = "Игры"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1525581158]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2" unique_id=260881791]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Start Game" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=2014502655]
+layout_mode = 2
+text = "Играть"
+flat = true
+alignment = 0
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer" unique_id=818897011]
+layout_mode = 2
+text = "Настройки"
+flat = true
+alignment = 0
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2" unique_id=855233535]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 48
+text = "Выйти"
+flat = true
+alignment = 0

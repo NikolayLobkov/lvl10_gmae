@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://by5j1kky4sim6"]
+
+[ext_resource type="Theme" uid="uid://4h7l1l6wl1p5" path="res://data/themes/main.tres" id="1_ejfuv"]
+[ext_resource type="Script" uid="uid://t768s0dpdaof" path="res://game/ui/settings_menu/settings_menu.gd" id="2_g5hdu"]
+
+[node name="SettingMenu" type="Control" unique_id=214224110]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ejfuv")
+script = ExtResource("2_g5hdu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1333841689]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SettingsMenu" type="PanelContainer" parent="." unique_id=253047756]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsMenu" unique_id=198929857]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/MarginContainer" unique_id=1445676457]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="RichTextLabel" parent="SettingsMenu/MarginContainer/VBoxContainer" unique_id=333721531]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.86933583, 0.8531089, 0.7911416, 1)
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "Настройки"
+fit_content = true
+scroll_active = false
+
+[node name="HSeparator" type="HSeparator" parent="SettingsMenu/MarginContainer/VBoxContainer" unique_id=1392420706]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SettingsMenu/MarginContainer/VBoxContainer" unique_id=2096173236]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="FieldsContainer" type="VBoxContainer" parent="SettingsMenu/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1512841582]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="SensitivityMouseLabel" type="RichTextLabel" parent="SettingsMenu/MarginContainer/VBoxContainer/ScrollContainer/FieldsContainer" unique_id=961908514]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Чуствительность мыши"
+fit_content = true
+scroll_active = false
+
+[node name="SensitivityMouseSlider" type="HSlider" parent="SettingsMenu/MarginContainer/VBoxContainer/ScrollContainer/FieldsContainer" unique_id=374172467]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 1000.0
+value = 100.0
+
+[node name="ResolutionLabel" type="RichTextLabel" parent="SettingsMenu/MarginContainer/VBoxContainer/ScrollContainer/FieldsContainer" unique_id=1302974038]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Разрешение"
+fit_content = true
+scroll_active = false
+
+[node name="ResolutionOptionButton" type="OptionButton" parent="SettingsMenu/MarginContainer/VBoxContainer/ScrollContainer/FieldsContainer" unique_id=1600466469]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+selected = 0
+item_count = 7
+popup/item_0/text = "1920 x 1080"
+popup/item_0/id = 0
+popup/item_1/text = "3840×2160"
+popup/item_1/id = 1
+popup/item_2/text = "3200×1800"
+popup/item_2/id = 2
+popup/item_3/text = "2560×1440"
+popup/item_3/id = 3
+popup/item_4/text = "1600×900"
+popup/item_4/id = 4
+popup/item_5/text = "1366×768"
+popup/item_5/id = 5
+popup/item_6/text = "1280×720"
+popup/item_6/id = 6
+
+[node name="WindowModeLabel" type="RichTextLabel" parent="SettingsMenu/MarginContainer/VBoxContainer/ScrollContainer/FieldsContainer" unique_id=1021660389]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Режим окна"
+fit_content = true
+scroll_active = false
+
+[node name="WindowModeOptionButton" type="OptionButton" parent="SettingsMenu/MarginContainer/VBoxContainer/ScrollContainer/FieldsContainer" unique_id=124057622]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+selected = 1
+item_count = 2
+popup/item_0/text = "Полноэкранный"
+popup/item_0/id = 0
+popup/item_1/text = "Окно"
+popup/item_1/id = 1
+
+[node name="MusicLabel" type="RichTextLabel" parent="SettingsMenu/MarginContainer/VBoxContainer/ScrollContainer/FieldsContainer" unique_id=1634055066]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Громкость музыки"
+fit_content = true
+scroll_active = false
+
+[node name="MusicSlider" type="HSlider" parent="SettingsMenu/MarginContainer/VBoxContainer/ScrollContainer/FieldsContainer" unique_id=705650431]
+unique_name_in_owner = true
+layout_mode = 2
+value = 25.0
+
+[node name="SFXLabel" type="RichTextLabel" parent="SettingsMenu/MarginContainer/VBoxContainer/ScrollContainer/FieldsContainer" unique_id=2006891396]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Громкость звука"
+fit_content = true
+scroll_active = false
+
+[node name="SFXSlider" type="HSlider" parent="SettingsMenu/MarginContainer/VBoxContainer/ScrollContainer/FieldsContainer" unique_id=1385554944]
+unique_name_in_owner = true
+layout_mode = 2
+value = 25.0
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="SettingsMenu/MarginContainer/VBoxContainer" unique_id=1965011674]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="BackButton" type="Button" parent="SettingsMenu/MarginContainer/VBoxContainer/ButtonsContainer" unique_id=1585329578]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Назад"
+flat = true
+
+[node name="ApplyButton" type="Button" parent="SettingsMenu/MarginContainer/VBoxContainer/ButtonsContainer" unique_id=283241625]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Принять"
+flat = true

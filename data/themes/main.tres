@@ -1,3 +1,17 @@
 [gd_resource type="Theme" format=3 uid="uid://4h7l1l6wl1p5"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5hdu"]
+bg_color = Color(0.06879827, 0.06879828, 0.06879828, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok8na"]
+
+[sub_resource type="SystemFont" id="SystemFont_ok8na"]
+font_names = PackedStringArray("Times New Roman")
+hinting = 2
+
 [resource]
+default_font = SubResource("SystemFont_ok8na")
+Button/font_sizes/font_size = 64
+Label/font_sizes/font_size = 109
+OptionButton/styles/normal = SubResource("StyleBoxFlat_g5hdu")
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_ok8na")

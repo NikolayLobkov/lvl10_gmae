@@ -14,6 +14,8 @@
 [ext_resource type="Script" uid="uid://djayw6v8lant4" path="res://assets/post_process/CompositorEffects/Blur.gd" id="7_cmsyx"]
 [ext_resource type="Script" uid="uid://pbpoy77lwtxj" path="res://assets/post_process/CompositorEffects/NoiseEffect.gd" id="8_feppd"]
 [ext_resource type="ArrayOccluder3D" uid="uid://dxya1hkykqysl" path="res://data/occluders/level.occ" id="13_436f3"]
+[ext_resource type="PackedScene" uid="uid://3rd5xpo8keqt" path="res://game/ui/main_menu/main_menu.tscn" id="15_cmsyx"]
+[ext_resource type="Shader" uid="uid://bo8v1tlugkicv" path="res://assets/shaders/barrel_distortion.gdshader" id="16_feppd"]
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_1q4is"]
 resource_local_to_scene = false
@@ -23,14 +25,14 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("4_bcos8")
-brightness = 1.3900000000000001
-saturation = 2.0
+brightness = 1.3599999999999999
+saturation = 1.62
 metadata/_custom_type_script = "uid://3vfigsefnhcm"
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_85l3h"]
 resource_local_to_scene = false
 resource_name = ""
-enabled = false
+enabled = true
 effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
@@ -45,7 +47,6 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("5_436f3")
-aberration = 1.5
 metadata/_custom_type_script = "uid://dptojbefdu206"
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_twhnx"]
@@ -93,6 +94,19 @@ size = Vector2(200, 200)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wt6go"]
 data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1cua4"]
+shader = ExtResource("16_feppd")
+shader_parameter/scanlines_1 = 50.0
+shader_parameter/scanlines_2 = 100.0
+shader_parameter/scan_reduction = 0.055
+shader_parameter/vinnette_alpha = 0.0
+shader_parameter/vinnette_inner_radius = 0.0
+shader_parameter/vinnette_outer_radius = 1.0
+shader_parameter/color_tint = Color(1, 1, 1, 1)
+shader_parameter/brightness = 1.4370000682575
+shader_parameter/contrast = 1.0
+shader_parameter/saturation = 1.0
+
 [node name="Node" type="Node" unique_id=218170005]
 
 [node name="Pools" type="Node" parent="." unique_id=67712728]
@@ -106,6 +120,7 @@ metadata/_custom_type_script = "uid://ce2a7n6i02v65"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=265647709]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1118711779]
@@ -149,5 +164,28 @@ mesh = SubResource("PlaneMesh_ok8na")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=1461599170]
 shape = SubResource("ConcavePolygonShape3D_wt6go")
+
+[node name="MainMenu" parent="." unique_id=1892307824 instance=ExtResource("15_cmsyx")]
+visible = false
+
+[node name="Shader" type="Control" parent="." unique_id=1492114368]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Shader" unique_id=985092207]
+visible = false
+material = SubResource("ShaderMaterial_1cua4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [editable path="Level"]

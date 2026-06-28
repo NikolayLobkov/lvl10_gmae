@@ -122,6 +122,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38652706, -0.25768447)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/1" unique_id=1046170632]
 
+[node name="AimRayCast" type="RayCast3D" parent="CameraPivot/1/Camera3D" unique_id=993876081]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -200)
+collision_mask = 9
+
 [node name="ViewModel" type="Node3D" parent="CameraPivot" unique_id=1322141816]
 transform = Transform3D(1, 0, 0, 0, 0.99778754, -0.06648292, 0, 0.06648292, 0.99778754, 0.09764862, -0.5772706, 0.16412115)
 
@@ -155,7 +160,7 @@ debug_color = Color(0.9960373, 0, 0.20279518, 0.41960785)
 root_node = NodePath("../EvaFPS")
 tree_root = SubResource("AnimationNodeBlendTree_5x802")
 anim_player = NodePath("../EvaFPS/AnimationPlayer")
-parameters/MoveAmount/blend_position = 6.11017764558374e-73
+parameters/MoveAmount/blend_position = 2.638755800155593e-307
 parameters/Shooting/blend_amount = 0.0
 parameters/Reload/active = false
 parameters/Reload/internal_active = false
@@ -235,5 +240,23 @@ external_skeleton = NodePath("../EvaFPS/Armature/Skeleton3D")
 [node name="RT" type="RemoteTransform3D" parent="Visual/WeaponAttacher" unique_id=478670991]
 transform = Transform3D(-0.97808874, 0.17612405, 0.11101435, -0.038296916, 0.37192512, -0.9274731, -0.2046393, -0.91140187, -0.3570305, -0.009493977, 0.014230013, 0.09407902)
 remote_path = NodePath("../../../CameraPivot/ViewModel/WeaponManager")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1686219216]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.7853982
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+
+[connection signal="weapon_shooted" from="CameraPivot/ViewModel/WeaponManager" to="." method="_on_weapon_manager_weapon_shooted"]
 
 [editable path="Visual/EvaFPS"]

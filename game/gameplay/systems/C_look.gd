@@ -17,3 +17,7 @@ func _input_tick(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		actor.rotation.y -= event.relative.x * 0.005
 		pivot.rotation.x = clampf(pivot.rotation.x - event.relative.y * 0.005, MIN_ANGLE, MAX_ANGLE)
+	
+	if event is InputEventKey:
+		if event.keycode == KEY_F4 and event.is_pressed():
+			UIManager.MouseManager.set_visibility_condition(&'mouse_look', not UIManager.MouseManager.mouse_visibility_conditions[&'mouse_look'])

@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://d0fxh6284gtvf" path="res://game/gameplay/systems/hitbox.gd" id="6_o0sjo"]
 [ext_resource type="Script" uid="uid://dcmbg7eyym0d7" path="res://game/gameplay/systems/C_weapon_manager.gd" id="7_y8ruj"]
 [ext_resource type="PackedScene" uid="uid://t1wt5irhfd71" path="res://game/gameplay/weapons/gun.tscn" id="8_t4dbo"]
+[ext_resource type="PackedScene" uid="uid://d2dudheefyns8" path="res://assets/robots/EvaFPS.glb" id="10_rfady"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5x802"]
 radius = 1.5
@@ -36,6 +37,7 @@ shape = SubResource("CapsuleShape3D_5x802")
 debug_color = Color(0.9960373, 0, 0.20279518, 0.41960785)
 
 [node name="Mesh" type="MeshInstance3D" parent="CollisionShape3D" unique_id=769840052]
+visible = false
 layers = 2
 mesh = SubResource("CapsuleMesh_5x802")
 
@@ -82,3 +84,61 @@ metadata/_custom_type_script = "uid://d0fxh6284gtvf"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shape = SubResource("CapsuleShape3D_5x802")
 debug_color = Color(0.9960373, 0, 0.20279518, 0.41960785)
+
+[node name="EvaFPS" parent="." unique_id=1459863779 instance=ExtResource("10_rfady")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="EvaFPS/Armature" parent_id_path=PackedInt32Array(1459863779, 605079350) index="0" unique_id=706352886]
+bones/1/position = Vector3(0.37305748, -0.021231353, 2.353088)
+bones/1/rotation = Quaternion(-0.011635647, 0.9946942, -0.0011956127, -0.10220907)
+bones/2/rotation = Quaternion(0.008270955, 0.70705837, 0.7070584, -0.008270954)
+bones/3/position = Vector3(-0.37305748, -0.021231353, 2.353088)
+bones/4/rotation = Quaternion(0.092619, 0, -2.056555e-17, 0.9957016)
+bones/7/rotation = Quaternion(0.0052408203, 1.1920764e-07, -6.247509e-10, 0.99998635)
+bones/8/rotation = Quaternion(-0.16069943, 1.5509227e-14, 2.2610795e-15, 0.9870034)
+bones/9/rotation = Quaternion(0.24634801, 9.85254e-16, -1.4421046e-15, 0.9691815)
+bones/10/rotation = Quaternion(0.3311107, -1.185963e-16, -1.1852684e-16, 0.94359195)
+bones/13/rotation = Quaternion(0.7908842, -0.010037622, 0.3118636, 0.52644324)
+bones/14/rotation = Quaternion(-0.21693908, 0.20004877, -0.22277673, 0.92913324)
+bones/15/rotation = Quaternion(0.20504265, -0.75923944, 0.41917348, 0.45365915)
+bones/16/rotation = Quaternion(0.05686029, -0.0033512884, 0.019159112, 0.99819267)
+bones/19/rotation = Quaternion(0.17623217, -0.823527, 0.33099017, 0.42566538)
+bones/20/rotation = Quaternion(0.08673063, 0.030649727, -0.007917006, 0.99572873)
+bones/23/rotation = Quaternion(0.1368147, -0.88356704, 0.24763253, 0.37318793)
+bones/24/rotation = Quaternion(0.113552086, 0.06443195, -0.029126627, 0.99101263)
+bones/27/rotation = Quaternion(-0.034836005, -0.963788, 0.26152503, 0.03877989)
+bones/28/rotation = Quaternion(0.010903612, -0.088612, 0.21445447, 0.97264504)
+bones/30/rotation = Quaternion(0.20766975, -0.71496356, 0.5041077, 0.4376938)
+bones/31/rotation = Quaternion(0.06913989, 0.011164562, 0.0052569555, 0.99753064)
+bones/34/rotation = Quaternion(0.88207406, -0.043556143, -0.41115376, 0.22583374)
+bones/35/rotation = Quaternion(-0.709662, 0.4315748, -0.24177803, 0.5016636)
+bones/36/rotation = Quaternion(0.009054579, -0.50961334, 0.38814095, 0.7678274)
+bones/37/rotation = Quaternion(0.21970148, 0.05459767, -0.4244527, 0.87669283)
+bones/38/rotation = Quaternion(0.15294778, 0.11459616, -0.38507557, 0.90287954)
+bones/39/rotation = Quaternion(0.4840232, 0.043487787, -0.499069, 0.71746814)
+bones/40/rotation = Quaternion(-0.03750461, -0.5164228, 0.32326227, 0.79208744)
+bones/41/rotation = Quaternion(0.21525294, 0.10255721, -0.3534713, 0.9045475)
+bones/42/rotation = Quaternion(0.16347027, -0.0073763523, -0.42119864, 0.89208454)
+bones/43/rotation = Quaternion(0.40653858, 0.095164336, -0.50210786, 0.757336)
+bones/44/rotation = Quaternion(-0.04444443, -0.5429631, 0.2318955, 0.80587864)
+bones/45/rotation = Quaternion(0.13452375, -0.081119895, -0.2698061, 0.9500146)
+bones/46/rotation = Quaternion(0.24153757, 0.19303626, -0.6874196, 0.65715367)
+bones/47/rotation = Quaternion(0.28981763, 0.18805659, -0.39314798, 0.8521004)
+bones/48/rotation = Quaternion(0.21381107, -0.5278185, 0.10644026, 0.8150846)
+bones/49/rotation = Quaternion(0.08829921, -0.021904835, 0.05698481, 0.99422145)
+bones/50/rotation = Quaternion(0.08192609, -0.08951754, 0.076955564, 0.9896224)
+bones/51/rotation = Quaternion(0.09116514, -0.47754353, 0.41626778, 0.7683505)
+bones/52/rotation = Quaternion(0.095246606, -0.06289763, -0.32351366, 0.939314)
+bones/53/rotation = Quaternion(0.17059147, 0.1068578, -0.5323674, 0.8222317)
+bones/54/rotation = Quaternion(0.44273892, 0.006901481, -0.5152973, 0.73375976)
+bones/55/rotation = Quaternion(0.97149706, 0.088152274, 0.064352624, 0.21043123)
+bones/56/rotation = Quaternion(0.3372142, 0.024058443, 0.08113508, 0.93761665)
+bones/57/rotation = Quaternion(0.055028316, 0.7274237, -0.6702686, 0.13626003)
+bones/58/rotation = Quaternion(0.9728949, -0.054029386, -0.0725035, 0.21283732)
+bones/59/rotation = Quaternion(0.34571037, -0.010270254, -0.026221642, 0.9379186)
+bones/60/rotation = Quaternion(-0.053944394, 0.72913617, -0.6686175, -0.13565083)
+
+[node name="AnimationPlayer" parent="EvaFPS" index="2" unique_id=1089062342]
+autoplay = &"Shoot"
+
+[editable path="EvaFPS"]

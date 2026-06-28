@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dcjuejso7yhra" path="res://game/gameplay/systems/weapon/components/C_cooldown.tscn" id="4_6rqp0"]
 [ext_resource type="PackedScene" uid="uid://clmi5yuwv1em4" path="res://game/gameplay/systems/weapon/components/C_magazine.tscn" id="5_xo1r0"]
 [ext_resource type="ArrayMesh" uid="uid://uhtqq7sr6jhl" path="res://assets/weapons/pistol.obj" id="6_jmwmr"]
+[ext_resource type="PackedScene" uid="uid://dfgwqwjb7ehs0" path="res://assets/weapons/weapon1.glb" id="8_lalmn"]
 
 [sub_resource type="Resource" id="Resource_8ry88"]
 script = ExtResource("2_v3q3h")
@@ -35,5 +36,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3643939, -0.83852816)
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=1457224559]
 transform = Transform3D(-1.7, 0, 2.5669289e-07, 0, 1.7, 0, -2.5669289e-07, 0, -1.7, 0, 0, 0)
+visible = false
 mesh = ExtResource("6_jmwmr")
 surface_material_override/0 = SubResource("StandardMaterial3D_jmwmr")
+
+[node name="weapon1" parent="." unique_id=324677454 instance=ExtResource("8_lalmn")]

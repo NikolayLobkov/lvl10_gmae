@@ -23,19 +23,18 @@ effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("4_bcos8")
-brightness = 1.43
-saturation = 1.65
+brightness = 1.3900000000000001
+saturation = 2.0
 metadata/_custom_type_script = "uid://3vfigsefnhcm"
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_85l3h"]
 resource_local_to_scene = false
 resource_name = ""
-enabled = true
+enabled = false
 effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("4_wt6go")
-levels = 24.0
 metadata/_custom_type_script = "uid://b6v7g84adx2ru"
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_o6fs4"]
@@ -115,7 +114,7 @@ compositor = SubResource("Compositor_madbc")
 
 [node name="Level" parent="." unique_id=908312502 instance=ExtResource("2_e2u21")]
 
-[node name="TestLevel" parent="Level" index="53" unique_id=1276092147]
+[node name="TestLevel" parent="Level" index="53" unique_id=1214583650]
 visible = false
 
 [node name="Characters" type="Node3D" parent="." unique_id=1847898279]

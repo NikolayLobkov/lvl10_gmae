@@ -1,4 +1,4 @@
-@icon('res://editor_icons/ref.svg')
+@icon('res://assets/editor_icons/ref.svg')
 class_name ObjectPoolManager extends ObjectPoolManagementNode
 
 ## @experimental

@@ -2,7 +2,7 @@
 class_name LookComponent extends Node
 
 
-const MIN_ANGLE: float = -PI / 3.0
+const MIN_ANGLE: float = -PI / 2.7
 const MAX_ANGLE: float = PI / 2.0
 
 

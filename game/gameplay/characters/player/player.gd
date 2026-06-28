@@ -5,6 +5,7 @@ class_name Player extends CharacterBody3D
 @onready var movement_component: MovementComponent = $MovementComponent
 @onready var look_component: LookComponent = $LookComponent
 @onready var weapon_manager: WeaponManager = %WeaponManager
+@onready var animation_tree: AnimationTree = $Visual/AnimationTree
 
 
 func _physics_process(delta: float) -> void:
@@ -22,6 +23,9 @@ func _physics_process(delta: float) -> void:
 		weapon_manager.weapon_attack()
 	if input_component._reload():
 		weapon_manager.weapon_reload()
+	
+	#animation_tree.move_amount = sqrt((velocity.x * velocity.x + velocity.z * velocity.z) / movement_component.params.default_speed)
+	animation_tree.move_amount = velocity.normalized().dot(basis.z)
 
 func _unhandled_input(event: InputEvent) -> void:
 	look_component._input_tick(event)

@@ -29,6 +29,9 @@ default_speed = 15.0
 jump_force = 7.0
 metadata/_custom_type_script = "uid://bnviqnup0u4nf"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c3hvl"]
+animation = &"Reload"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rfady"]
 animation = &"Shoot"
 
@@ -38,6 +41,10 @@ animation = &"Idle"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ir5h3"]
 animation = &"Walk"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3ew0l"]
+animation = &"Walk"
+play_mode = 1
+
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_c3hvl"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_07icc")
 blend_point_0/pos = 0.0
@@ -45,19 +52,32 @@ blend_point_0/name = &"Idle"
 blend_point_1/node = SubResource("AnimationNodeAnimation_ir5h3")
 blend_point_1/pos = 1.0
 blend_point_1/name = &"Walk"
+blend_point_2/node = SubResource("AnimationNodeAnimation_3ew0l")
+blend_point_2/pos = -1.0
+blend_point_2/name = &"Walk 2"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_3ew0l"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:Arm1.L", "Armature/Skeleton3D:Arm2.L", "Armature/Skeleton3D:Bone.003", "Armature/Skeleton3D:Index1.L", "Armature/Skeleton3D:Index2.L", "Armature/Skeleton3D:Middle1.L", "Armature/Skeleton3D:Middle2.L", "Armature/Skeleton3D:Pinky1.L", "Armature/Skeleton3D:Pinky2.L", "Armature/Skeleton3D:Ring1.L", "Armature/Skeleton3D:Ring2.L", "Armature/Skeleton3D:Thumb1.L", "Armature/Skeleton3D:Thumb2.L"]
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_3ew0l"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Arm1.L", "Armature/Skeleton3D:Arm1.R", "Armature/Skeleton3D:Arm2.L", "Armature/Skeleton3D:Arm2.R", "Armature/Skeleton3D:Bone.003", "Armature/Skeleton3D:Index1.L", "Armature/Skeleton3D:Index1.R", "Armature/Skeleton3D:Index2.L", "Armature/Skeleton3D:Index2.R", "Armature/Skeleton3D:Index3.R", "Armature/Skeleton3D:Index4.R", "Armature/Skeleton3D:Middle1.L", "Armature/Skeleton3D:Middle1.R", "Armature/Skeleton3D:Middle2.L", "Armature/Skeleton3D:Middle2.R", "Armature/Skeleton3D:Middle3.R", "Armature/Skeleton3D:Middle4.R", "Armature/Skeleton3D:Pinky1.L", "Armature/Skeleton3D:Pinky1.R", "Armature/Skeleton3D:Pinky2.L", "Armature/Skeleton3D:Pinky2.R", "Armature/Skeleton3D:Pinky3.R", "Armature/Skeleton3D:Pinky4.R", "Armature/Skeleton3D:Ring1.L", "Armature/Skeleton3D:Ring1.R", "Armature/Skeleton3D:Ring2.L", "Armature/Skeleton3D:Ring2.R", "Armature/Skeleton3D:Ring3.R", "Armature/Skeleton3D:Ring4.R", "Armature/Skeleton3D:Thumb1.L", "Armature/Skeleton3D:Thumb1.R", "Armature/Skeleton3D:Thumb2.L", "Armature/Skeleton3D:Thumb2.R", "Armature/Skeleton3D:Thumb3.R"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5x802"]
+graph_offset = Vector2(-402.0795, 29.25647)
+nodes/output/position = Vector2(560, 340)
 nodes/MoveAmount/node = SubResource("AnimationNodeBlendSpace1D_c3hvl")
 nodes/MoveAmount/position = Vector2(-200, 60)
 nodes/Shooting/node = SubResource("AnimationNodeBlend2_3ew0l")
-nodes/Shooting/position = Vector2(40, 240)
+nodes/Shooting/position = Vector2(20, 280)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_rfady")
-nodes/Animation/position = Vector2(-177.15611, 339.67123)
-node_connections = [&"output", 0, &"Shooting", &"Shooting", 0, &"MoveAmount", &"Shooting", 1, &"Animation"]
+nodes/Animation/position = Vector2(-280, 380)
+nodes/Reload/node = SubResource("AnimationNodeOneShot_3ew0l")
+nodes/Reload/position = Vector2(260, 400)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_c3hvl")
+"nodes/Animation 2/position" = Vector2(-160, 740)
+node_connections = [&"output", 0, &"Reload", &"Shooting", 0, &"MoveAmount", &"Shooting", 1, &"Animation", &"Reload", 0, &"Shooting", &"Reload", 1, &"Animation 2"]
 
 [node name="Player" type="CharacterBody3D" unique_id=1327017756]
 collision_layer = 2
@@ -103,7 +123,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38652706, -0.25768447)
 [node name="Camera3D" type="Camera3D" parent="CameraPivot/1" unique_id=1046170632]
 
 [node name="ViewModel" type="Node3D" parent="CameraPivot" unique_id=1322141816]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.375, 0)
+transform = Transform3D(1, 0, 0, 0, 0.99778754, -0.06648292, 0, 0.06648292, 0.99778754, 0.09764862, -0.5772706, 0.16412115)
 
 [node name="ModelTransformer" type="RemoteTransform3D" parent="CameraPivot/ViewModel" unique_id=1845479410]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.42949057, 0)
@@ -111,8 +131,9 @@ remote_path = NodePath("../../../Visual/ModelTransformer")
 
 [node name="WeaponManager" type="Node3D" parent="CameraPivot/ViewModel" unique_id=153690424]
 unique_name_in_owner = true
-transform = Transform3D(0.9829072, -0.16872165, 0.07367062, 0.15921298, 0.9799216, 0.12002507, -0.09244174, -0.10624409, 0.99003386, 0.19501416, 0.112541676, -1.3379513)
+transform = Transform3D(0.9829072, -0.16872165, 0.073670626, 0.15921293, 0.9799216, 0.12002498, -0.09244172, -0.10624409, 0.9900339, 0.19501412, 0.11254215, -1.3379513)
 script = ExtResource("7_y8ruj")
+enable_targeting = true
 
 [node name="Gun" parent="CameraPivot/ViewModel/WeaponManager" unique_id=1147345495 instance=ExtResource("8_t4dbo")]
 
@@ -134,14 +155,17 @@ debug_color = Color(0.9960373, 0, 0.20279518, 0.41960785)
 root_node = NodePath("../EvaFPS")
 tree_root = SubResource("AnimationNodeBlendTree_5x802")
 anim_player = NodePath("../EvaFPS/AnimationPlayer")
-parameters/MoveAmount/blend_position = 4.7331434385400184e-15
+parameters/MoveAmount/blend_position = 6.11017764558374e-73
 parameters/Shooting/blend_amount = 0.0
+parameters/Reload/active = false
+parameters/Reload/internal_active = false
+parameters/Reload/request = 0
 script = ExtResource("10_07icc")
 
 [node name="EvaFPS" parent="Visual" unique_id=1459863779 instance=ExtResource("10_rfady")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Visual/EvaFPS/Armature" parent_id_path=PackedInt32Array(1459863779, 1816013117) index="0" unique_id=360998479]
+[node name="Skeleton3D" parent="Visual/EvaFPS/Armature" parent_id_path=PackedInt32Array(1459863779, 69245819) index="0" unique_id=1767312648]
 bones/1/position = Vector3(0.37305748, -0.021231353, 2.353088)
 bones/1/rotation = Quaternion(-0.011635647, 0.9946942, -0.0011956127, -0.10220907)
 bones/2/rotation = Quaternion(0.008270955, 0.70705837, 0.7070584, -0.008270954)
@@ -149,7 +173,7 @@ bones/3/position = Vector3(-0.37305748, -0.021231353, 2.353088)
 bones/4/rotation = Quaternion(0.092619, 0, -2.056555e-17, 0.9957016)
 bones/7/rotation = Quaternion(0.0052408203, 1.1920764e-07, -6.247509e-10, 0.99998635)
 bones/8/rotation = Quaternion(-0.16069943, 1.5509227e-14, 2.2610795e-15, 0.9870034)
-bones/9/position = Vector3(9.628183e-15, 0.62411475, 0.19379056)
+bones/9/position = Vector3(-0.097648636, 0.47418904, 0.0029228926)
 bones/9/rotation = Quaternion(0.24634801, 9.85254e-16, -1.4421046e-15, 0.9691815)
 bones/9/scale = Vector3(1, 1.0000002, 1)
 bones/10/rotation = Quaternion(0.3311107, -1.185963e-16, -1.1852684e-16, 0.94359195)
@@ -194,7 +218,7 @@ bones/61/rotation = Quaternion(0.34571037, -0.010270254, -0.026221642, 0.9379186
 bones/62/rotation = Quaternion(-0.053944394, 0.72913617, -0.6686175, -0.13565083)
 
 [node name="ModelTransformer" type="BoneAttachment3D" parent="Visual" unique_id=834148971]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 4.731474, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, -5.812121e-09, 0.99778754, 0.06648292, 8.722936e-08, 0.06648292, -0.99778754, 0.09764862, 4.5301538, 0.13556737)
 bone_name = "Bone.002"
 bone_idx = 9
 override_pose = true
@@ -202,7 +226,7 @@ use_external_skeleton = true
 external_skeleton = NodePath("../EvaFPS/Armature/Skeleton3D")
 
 [node name="WeaponAttacher" type="BoneAttachment3D" parent="Visual" unique_id=761837605]
-transform = Transform3D(-0.98290646, -0.16872151, -0.07367068, 0.030187897, 0.24703974, -0.9685348, 0.18161172, -0.95420307, -0.2377237, 0.19501425, 5.3613963, -1.3002839)
+transform = Transform3D(-0.98290646, -0.16872153, -0.07367067, 0.01804708, 0.30993146, -0.9505873, 0.18321687, -0.93566805, -0.30158877, 0.29266283, 5.2451296, -1.1199605)
 bone_name = "BoneForGun"
 bone_idx = 49
 use_external_skeleton = true

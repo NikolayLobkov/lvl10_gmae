@@ -21,6 +21,8 @@ Core="*uid://cfae0p7diafgj"
 Gameplay="*uid://c2suvxwosu1ii"
 UIManager="*uid://7yovn8ky2xly"
 PerformanceMonitor="*uid://dayvqnquvabps"
+DialogueManager="*uid://dofx8jbv7g6x7"
+SfxPlayer="*uid://d5w1xv0y1gwb"
 
 [display]
 

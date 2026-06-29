@@ -16,6 +16,13 @@
 [ext_resource type="ArrayOccluder3D" uid="uid://dxya1hkykqysl" path="res://data/occluders/level.occ" id="13_436f3"]
 [ext_resource type="PackedScene" uid="uid://3rd5xpo8keqt" path="res://game/ui/main_menu/main_menu.tscn" id="15_cmsyx"]
 [ext_resource type="Shader" uid="uid://bo8v1tlugkicv" path="res://assets/shaders/barrel_distortion.gdshader" id="16_feppd"]
+[ext_resource type="Script" uid="uid://dpm0ua5ruhsi7" path="res://dialogue_trigger.gd" id="17_aeaoo"]
+[ext_resource type="Script" uid="uid://ehy2y105yg74" path="res://game/gameplay/systems/dialogue/dialogue_line.gd" id="18_bnlop"]
+[ext_resource type="Texture2D" uid="uid://chtuwvw8sqntc" path="res://assets/editor_icons/eye.svg" id="19_ey15c"]
+[ext_resource type="Script" uid="uid://b0d3nru6l8rlh" path="res://game/gameplay/systems/dialogue/dialogue_sequence.gd" id="19_oaeeq"]
+[ext_resource type="Texture2D" uid="uid://bndj8reeubi8f" path="res://assets/editor_icons/heart_1.svg" id="20_p1837"]
+[ext_resource type="AudioStream" uid="uid://ekrfp72q1m2c" path="res://assets/audio/explosion_house/explosion_impact.ogg" id="20_qv2vy"]
+[ext_resource type="AudioStream" uid="uid://dmyf44b0kwugs" path="res://assets/audio/ground_landing/ground.ogg" id="22_8jewq"]
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_1q4is"]
 resource_local_to_scene = false
@@ -107,6 +114,36 @@ shader_parameter/brightness = 1.4370000682575
 shader_parameter/contrast = 1.0
 shader_parameter/saturation = 1.0
 
+[sub_resource type="Resource" id="Resource_bnlop"]
+script = ExtResource("18_bnlop")
+speaker_id = &"0"
+speaker_name = "выфвыф"
+portrait = ExtResource("19_ey15c")
+text = "Ну чё? Начнём?"
+voice_clip = ExtResource("20_qv2vy")
+min_duration = 3.0
+metadata/_custom_type_script = "uid://ehy2y105yg74"
+
+[sub_resource type="Resource" id="Resource_oaeeq"]
+script = ExtResource("18_bnlop")
+speaker_id = &"1"
+speaker_name = "Еуы"
+portrait = ExtResource("20_p1837")
+text = "Короче такой расклад. Нужно всех убить"
+voice_clip = ExtResource("22_8jewq")
+min_duration = 3.0
+tint = Color(1, 0, 0, 1)
+metadata/_custom_type_script = "uid://ehy2y105yg74"
+
+[sub_resource type="Resource" id="Resource_sps8e"]
+script = ExtResource("19_oaeeq")
+id = &"0"
+lines = Array[ExtResource("18_bnlop")]([SubResource("Resource_bnlop"), SubResource("Resource_oaeeq")])
+metadata/_custom_type_script = "uid://b0d3nru6l8rlh"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ok8na"]
+size = Vector3(5, 5, 5)
+
 [node name="Node" type="Node" unique_id=218170005]
 
 [node name="Pools" type="Node" parent="." unique_id=67712728]
@@ -129,7 +166,7 @@ compositor = SubResource("Compositor_madbc")
 
 [node name="Level" parent="." unique_id=908312502 instance=ExtResource("2_e2u21")]
 
-[node name="TestLevel" parent="Level" index="53" unique_id=1276092147]
+[node name="TestLevel" parent="Level" index="53" unique_id=1214583650]
 visible = false
 
 [node name="Characters" type="Node3D" parent="." unique_id=1847898279]
@@ -169,6 +206,7 @@ shape = SubResource("ConcavePolygonShape3D_wt6go")
 visible = false
 
 [node name="Shader" type="Control" parent="." unique_id=1492114368]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -187,5 +225,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Area3D" type="Area3D" parent="." unique_id=163896115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.695997, -1.9073486e-06, 5.750778)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("17_aeaoo")
+sequence = SubResource("Resource_sps8e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=813805516]
+shape = SubResource("BoxShape3D_ok8na")
 
 [editable path="Level"]

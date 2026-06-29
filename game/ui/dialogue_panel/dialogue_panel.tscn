@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://ckrkiodtc5iw"]
+
+[ext_resource type="Script" uid="uid://bxkm35uieuovo" path="res://game/ui/dialogue_panel/dialogue_panel.gd" id="1_8ted3"]
+[ext_resource type="Theme" uid="uid://4h7l1l6wl1p5" path="res://assets/themes/main.tres" id="1_h58ab"]
+[ext_resource type="Texture2D" uid="uid://chtuwvw8sqntc" path="res://assets/editor_icons/eye.svg" id="2_ty13c"]
+
+[node name="DialoguePanel" type="Control" unique_id=550225358]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_h58ab")
+script = ExtResource("1_8ted3")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1460781767]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=1753620823]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1580356304]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Panel/HBoxContainer/VBoxContainer" unique_id=553955786]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "dsadsadsadsadsa"
+
+[node name="Portrait" type="TextureRect" parent="Panel/HBoxContainer/VBoxContainer" unique_id=476299705]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_ty13c")
+expand_mode = 4
+
+[node name="TextLabel" type="RichTextLabel" parent="Panel/HBoxContainer" unique_id=456465664]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+text = "hhhhh hhhhhhhhhhh hhhhhhhhhh "

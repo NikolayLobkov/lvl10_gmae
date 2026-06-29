@@ -1,7 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://4h7l1l6wl1p5"]
 
 [sub_resource type="SystemFont" id="SystemFont_ok8na"]
-font_names = PackedStringArray("Monospace")
 hinting = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5hdu"]

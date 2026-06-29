@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://t1wt5irhfd71" path="res://game/gameplay/weapons/gun.tscn" id="8_t4dbo"]
 [ext_resource type="Script" uid="uid://n7xtuomv2h21" path="res://game/gameplay/characters/player/animation_tree.gd" id="10_07icc"]
 [ext_resource type="PackedScene" uid="uid://d2dudheefyns8" path="res://assets/robots/EvaFPS.glb" id="10_rfady"]
+[ext_resource type="PackedScene" uid="uid://ckrkiodtc5iw" path="res://game/ui/dialogue_panel/dialogue_panel.tscn" id="13_c3hvl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5x802"]
 radius = 1.5
@@ -160,7 +161,7 @@ debug_color = Color(0.9960373, 0, 0.20279518, 0.41960785)
 root_node = NodePath("../EvaFPS")
 tree_root = SubResource("AnimationNodeBlendTree_5x802")
 anim_player = NodePath("../EvaFPS/AnimationPlayer")
-parameters/MoveAmount/blend_position = 2.638755800155593e-307
+parameters/MoveAmount/blend_position = 0.0
 parameters/Shooting/blend_amount = 0.0
 parameters/Reload/active = false
 parameters/Reload/internal_active = false
@@ -170,7 +171,7 @@ script = ExtResource("10_07icc")
 [node name="EvaFPS" parent="Visual" unique_id=1459863779 instance=ExtResource("10_rfady")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Visual/EvaFPS/Armature" parent_id_path=PackedInt32Array(1459863779, 69245819) index="0" unique_id=1767312648]
+[node name="Skeleton3D" parent="Visual/EvaFPS/Armature" parent_id_path=PackedInt32Array(1459863779, 997552653) index="0" unique_id=721361725]
 bones/1/position = Vector3(0.37305748, -0.021231353, 2.353088)
 bones/1/rotation = Quaternion(-0.011635647, 0.9946942, -0.0011956127, -0.10220907)
 bones/2/rotation = Quaternion(0.008270955, 0.70705837, 0.7070584, -0.008270954)
@@ -178,9 +179,9 @@ bones/3/position = Vector3(-0.37305748, -0.021231353, 2.353088)
 bones/4/rotation = Quaternion(0.092619, 0, -2.056555e-17, 0.9957016)
 bones/7/rotation = Quaternion(0.0052408203, 1.1920764e-07, -6.247509e-10, 0.99998635)
 bones/8/rotation = Quaternion(-0.16069943, 1.5509227e-14, 2.2610795e-15, 0.9870034)
-bones/9/position = Vector3(-0.097648636, 0.47418904, 0.0029228926)
+bones/9/position = Vector3(-0.097648636, 0.7171073, 0.09977913)
 bones/9/rotation = Quaternion(0.24634801, 9.85254e-16, -1.4421046e-15, 0.9691815)
-bones/9/scale = Vector3(1, 1.0000002, 1)
+bones/9/scale = Vector3(1, 1, 0.9999999)
 bones/10/rotation = Quaternion(0.3311107, -1.185963e-16, -1.1852684e-16, 0.94359195)
 bones/13/rotation = Quaternion(0.7908842, -0.010037622, 0.3118636, 0.52644324)
 bones/14/rotation = Quaternion(-0.21693908, 0.20004877, -0.22277673, 0.92913324)
@@ -256,6 +257,8 @@ grow_vertical = 2
 rotation = 0.7853982
 pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
+
+[node name="DialoguePanel" parent="." unique_id=550225358 instance=ExtResource("13_c3hvl")]
 
 [connection signal="weapon_shooted" from="CameraPivot/ViewModel/WeaponManager" to="." method="_on_weapon_manager_weapon_shooted"]
 

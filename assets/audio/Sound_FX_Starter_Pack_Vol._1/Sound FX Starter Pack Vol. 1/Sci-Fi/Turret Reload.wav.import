@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ddibetmupcec3"
+path="res://.godot/imported/Turret Reload.wav-1d7dbf6978a74f5a21958b08e9299c4a.sample"
+
+[deps]
+
+source_file="res://assets/audio/Sound_FX_Starter_Pack_Vol._1/Sound FX Starter Pack Vol. 1/Sci-Fi/Turret Reload.wav"
+dest_files=["res://.godot/imported/Turret Reload.wav-1d7dbf6978a74f5a21958b08e9299c4a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

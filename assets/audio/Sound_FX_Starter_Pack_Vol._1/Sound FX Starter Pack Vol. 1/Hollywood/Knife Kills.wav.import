@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cq8b7hk2diopd"
+path="res://.godot/imported/Knife Kills.wav-acbde821816a41850362523a1904869e.sample"
+
+[deps]
+
+source_file="res://assets/audio/Sound_FX_Starter_Pack_Vol._1/Sound FX Starter Pack Vol. 1/Hollywood/Knife Kills.wav"
+dest_files=["res://.godot/imported/Knife Kills.wav-acbde821816a41850362523a1904869e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

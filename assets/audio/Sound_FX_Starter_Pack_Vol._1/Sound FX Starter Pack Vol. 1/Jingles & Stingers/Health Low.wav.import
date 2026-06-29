@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c6q73aw2xuqe2"
+path="res://.godot/imported/Health Low.wav-a613104bec0da4c5b150e810f416d0f1.sample"
+
+[deps]
+
+source_file="res://assets/audio/Sound_FX_Starter_Pack_Vol._1/Sound FX Starter Pack Vol. 1/Jingles & Stingers/Health Low.wav"
+dest_files=["res://.godot/imported/Health Low.wav-a613104bec0da4c5b150e810f416d0f1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

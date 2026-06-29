@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://e2isstb5arim"
+path="res://.godot/imported/Dissonance.wav-4e0bad0bef2d24bf7dbbcbe8af889cc4.sample"
+
+[deps]
+
+source_file="res://assets/audio/Sound_FX_Starter_Pack_Vol._1/Sound FX Starter Pack Vol. 1/Horror/Dissonance.wav"
+dest_files=["res://.godot/imported/Dissonance.wav-4e0bad0bef2d24bf7dbbcbe8af889cc4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

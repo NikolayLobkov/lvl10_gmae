@@ -30,6 +30,10 @@ window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+player=""
+
 [input]
 
 move_forward={

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c1kqsa1rm5afq"
+path="res://.godot/imported/Necromantic Healing.wav-007535e0502fb04346803e816f9545ef.sample"
+
+[deps]
+
+source_file="res://assets/audio/Sound_FX_Starter_Pack_Vol._1/Sound FX Starter Pack Vol. 1/Magic/Necromantic Healing.wav"
+dest_files=["res://.godot/imported/Necromantic Healing.wav-007535e0502fb04346803e816f9545ef.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

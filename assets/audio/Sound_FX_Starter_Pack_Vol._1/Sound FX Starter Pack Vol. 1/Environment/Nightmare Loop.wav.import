@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmii38m1chy87"
+path="res://.godot/imported/Nightmare Loop.wav-f06ac017a36f5347924f832e1f305ccc.sample"
+
+[deps]
+
+source_file="res://assets/audio/Sound_FX_Starter_Pack_Vol._1/Sound FX Starter Pack Vol. 1/Environment/Nightmare Loop.wav"
+dest_files=["res://.godot/imported/Nightmare Loop.wav-f06ac017a36f5347924f832e1f305ccc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

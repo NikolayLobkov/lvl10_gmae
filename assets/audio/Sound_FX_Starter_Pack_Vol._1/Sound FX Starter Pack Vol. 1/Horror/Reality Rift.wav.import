@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dyla4j1u8gfto"
+path="res://.godot/imported/Reality Rift.wav-ae06aae8b0f9da151f9a9411a62c4642.sample"
+
+[deps]
+
+source_file="res://assets/audio/Sound_FX_Starter_Pack_Vol._1/Sound FX Starter Pack Vol. 1/Horror/Reality Rift.wav"
+dest_files=["res://.godot/imported/Reality Rift.wav-ae06aae8b0f9da151f9a9411a62c4642.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

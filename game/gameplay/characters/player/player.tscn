@@ -13,6 +13,12 @@
 [ext_resource type="Script" uid="uid://n7xtuomv2h21" path="res://game/gameplay/characters/player/animation_tree.gd" id="10_07icc"]
 [ext_resource type="PackedScene" uid="uid://d2dudheefyns8" path="res://assets/robots/EvaFPS.glb" id="10_rfady"]
 [ext_resource type="PackedScene" uid="uid://ckrkiodtc5iw" path="res://game/ui/dialogue_panel/dialogue_panel.tscn" id="13_c3hvl"]
+[ext_resource type="AudioStream" uid="uid://ekrfp72q1m2c" path="res://assets/audio/explosion_house/explosion_impact.ogg" id="14_241j6"]
+[ext_resource type="AudioStream" uid="uid://cun5mo314t5av" path="res://assets/audio/steps/-01-2.ogg" id="14_jj4y4"]
+[ext_resource type="AudioStream" uid="uid://c4n2ng4ntimft" path="res://assets/audio/steps/-02-2.ogg" id="15_e7oqw"]
+[ext_resource type="AudioStream" uid="uid://dkbmaeuwe481q" path="res://assets/audio/steps/-03-2.ogg" id="16_ex61n"]
+[ext_resource type="Script" uid="uid://0uew6loylxyp" path="res://game/gameplay/characters/player/audio_steps.gd" id="17_xrqw8"]
+[ext_resource type="AudioStream" uid="uid://bx730ay27j4u4" path="res://assets/audio/steps/Molotov.ogg" id="19_ex61n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5x802"]
 radius = 1.5
@@ -66,7 +72,7 @@ filter_enabled = true
 filters = ["Armature/Skeleton3D:Arm1.L", "Armature/Skeleton3D:Arm1.R", "Armature/Skeleton3D:Arm2.L", "Armature/Skeleton3D:Arm2.R", "Armature/Skeleton3D:Bone.003", "Armature/Skeleton3D:Index1.L", "Armature/Skeleton3D:Index1.R", "Armature/Skeleton3D:Index2.L", "Armature/Skeleton3D:Index2.R", "Armature/Skeleton3D:Index3.R", "Armature/Skeleton3D:Index4.R", "Armature/Skeleton3D:Middle1.L", "Armature/Skeleton3D:Middle1.R", "Armature/Skeleton3D:Middle2.L", "Armature/Skeleton3D:Middle2.R", "Armature/Skeleton3D:Middle3.R", "Armature/Skeleton3D:Middle4.R", "Armature/Skeleton3D:Pinky1.L", "Armature/Skeleton3D:Pinky1.R", "Armature/Skeleton3D:Pinky2.L", "Armature/Skeleton3D:Pinky2.R", "Armature/Skeleton3D:Pinky3.R", "Armature/Skeleton3D:Pinky4.R", "Armature/Skeleton3D:Ring1.L", "Armature/Skeleton3D:Ring1.R", "Armature/Skeleton3D:Ring2.L", "Armature/Skeleton3D:Ring2.R", "Armature/Skeleton3D:Ring3.R", "Armature/Skeleton3D:Ring4.R", "Armature/Skeleton3D:Thumb1.L", "Armature/Skeleton3D:Thumb1.R", "Armature/Skeleton3D:Thumb2.L", "Armature/Skeleton3D:Thumb2.R", "Armature/Skeleton3D:Thumb3.R"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5x802"]
-graph_offset = Vector2(-402.0795, 29.25647)
+graph_offset = Vector2(-319.6369, 215.0581)
 nodes/output/position = Vector2(560, 340)
 nodes/MoveAmount/node = SubResource("AnimationNodeBlendSpace1D_c3hvl")
 nodes/MoveAmount/position = Vector2(-200, 60)
@@ -75,12 +81,32 @@ nodes/Shooting/position = Vector2(20, 280)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_rfady")
 nodes/Animation/position = Vector2(-280, 380)
 nodes/Reload/node = SubResource("AnimationNodeOneShot_3ew0l")
-nodes/Reload/position = Vector2(260, 400)
+nodes/Reload/position = Vector2(300, 380)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_c3hvl")
 "nodes/Animation 2/position" = Vector2(-160, 740)
 node_connections = [&"output", 0, &"Reload", &"Shooting", 0, &"MoveAmount", &"Shooting", 1, &"Animation", &"Reload", 0, &"Shooting", &"Reload", 1, &"Animation 2"]
 
-[node name="Player" type="CharacterBody3D" unique_id=1327017756]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e7oqw"]
+random_pitch = 1.3348398
+random_volume_offset_db = 1.0
+streams_count = 3
+stream_0/stream = ExtResource("14_jj4y4")
+stream_1/stream = ExtResource("15_e7oqw")
+stream_2/stream = ExtResource("16_ex61n")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ok8na"]
+random_pitch = 1.3348398
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("14_241j6")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xrqw8"]
+random_pitch = 1.3348398
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("19_ex61n")
+
+[node name="Player" type="CharacterBody3D" unique_id=1327017756 groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_1jdmm")
 
@@ -179,9 +205,9 @@ bones/3/position = Vector3(-0.37305748, -0.021231353, 2.353088)
 bones/4/rotation = Quaternion(0.092619, 0, -2.056555e-17, 0.9957016)
 bones/7/rotation = Quaternion(0.0052408203, 1.1920764e-07, -6.247509e-10, 0.99998635)
 bones/8/rotation = Quaternion(-0.16069943, 1.5509227e-14, 2.2610795e-15, 0.9870034)
-bones/9/position = Vector3(-0.097648636, 0.7171073, 0.09977913)
+bones/9/position = Vector3(-0.097648636, 0.47418904, 0.0029228926)
 bones/9/rotation = Quaternion(0.24634801, 9.85254e-16, -1.4421046e-15, 0.9691815)
-bones/9/scale = Vector3(1, 1, 0.9999999)
+bones/9/scale = Vector3(1, 1.0000002, 1)
 bones/10/rotation = Quaternion(0.3311107, -1.185963e-16, -1.1852684e-16, 0.94359195)
 bones/13/rotation = Quaternion(0.7908842, -0.010037622, 0.3118636, 0.52644324)
 bones/14/rotation = Quaternion(-0.21693908, 0.20004877, -0.22277673, 0.92913324)
@@ -259,6 +285,21 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 mouse_filter = 2
 
 [node name="DialoguePanel" parent="." unique_id=550225358 instance=ExtResource("13_c3hvl")]
+
+[node name="AudioSteps" type="AudioStreamPlayer" parent="." unique_id=220296605]
+stream = SubResource("AudioStreamRandomizer_e7oqw")
+pitch_scale = 0.75
+script = ExtResource("17_xrqw8")
+
+[node name="AudioFalling" type="AudioStreamPlayer" parent="." unique_id=478290229]
+stream = SubResource("AudioStreamRandomizer_ok8na")
+script = ExtResource("17_xrqw8")
+type_sound = 1
+
+[node name="AudioJump" type="AudioStreamPlayer" parent="." unique_id=195734807]
+stream = SubResource("AudioStreamRandomizer_xrqw8")
+script = ExtResource("17_xrqw8")
+type_sound = 2
 
 [connection signal="weapon_shooted" from="CameraPivot/ViewModel/WeaponManager" to="." method="_on_weapon_manager_weapon_shooted"]
 

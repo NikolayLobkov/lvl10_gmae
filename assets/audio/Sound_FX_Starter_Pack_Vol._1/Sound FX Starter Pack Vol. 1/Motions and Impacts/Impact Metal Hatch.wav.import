@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ctreo4i18robn"
+path="res://.godot/imported/Impact Metal Hatch.wav-9ca9c4cf49d5cce6a21c3c9e9c51e64c.sample"
+
+[deps]
+
+source_file="res://assets/audio/Sound_FX_Starter_Pack_Vol._1/Sound FX Starter Pack Vol. 1/Motions and Impacts/Impact Metal Hatch.wav"
+dest_files=["res://.godot/imported/Impact Metal Hatch.wav-9ca9c4cf49d5cce6a21c3c9e9c51e64c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

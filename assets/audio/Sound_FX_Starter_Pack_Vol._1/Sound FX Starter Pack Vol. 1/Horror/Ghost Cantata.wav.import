@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c1352utb71uut"
+path="res://.godot/imported/Ghost Cantata.wav-6f4bdf1d173b7c76aadaf8f723c5264d.sample"
+
+[deps]
+
+source_file="res://assets/audio/Sound_FX_Starter_Pack_Vol._1/Sound FX Starter Pack Vol. 1/Horror/Ghost Cantata.wav"
+dest_files=["res://.godot/imported/Ghost Cantata.wav-6f4bdf1d173b7c76aadaf8f723c5264d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

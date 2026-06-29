@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bpdf6diryjvmb" path="res://game/gameplay/systems/weapon/CL_weapon.gd" id="1_dmjvx"]
 [ext_resource type="Script" uid="uid://bgjkxog25kt5g" path="res://game/gameplay/systems/weapon/R_weapon_data.gd" id="2_v3q3h"]
-[ext_resource type="AudioStream" uid="uid://clklktj5fso1b" path="res://assets/audio/shoots/Shoot1.ogg" id="3_lhvdl"]
+[ext_resource type="AudioStream" uid="uid://ee54p3mocrvg" path="res://assets/audio/Sound_FX_Starter_Pack_Vol._1/Sound FX Starter Pack Vol. 1/Sci-Fi/Pulse Sniper.wav" id="3_lalmn"]
 [ext_resource type="PackedScene" uid="uid://g0lhxrwssiuf" path="res://game/gameplay/systems/weapon/components/C_muzzle.tscn" id="3_v3q3h"]
 [ext_resource type="PackedScene" uid="uid://dcjuejso7yhra" path="res://game/gameplay/systems/weapon/components/C_cooldown.tscn" id="4_6rqp0"]
 [ext_resource type="PackedScene" uid="uid://clmi5yuwv1em4" path="res://game/gameplay/systems/weapon/components/C_magazine.tscn" id="5_xo1r0"]
@@ -14,8 +14,8 @@ script = ExtResource("2_v3q3h")
 damage = 14.0
 cooldown = 0.15000000000000002
 magazine_size = 52
-shoot_sound = ExtResource("3_lhvdl")
-shoot_sound_pitch_scale = 1.75
+shoot_sound = ExtResource("3_lalmn")
+shoot_sound_pitch_scale = 0.61
 metadata/_custom_type_script = "uid://bgjkxog25kt5g"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmwmr"]

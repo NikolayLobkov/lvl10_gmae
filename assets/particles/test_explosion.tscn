@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cpccnrjbsma8b"]
+
+[sub_resource type="GDScript" id="GDScript_usbyf"]
+resource_name = "test_explosion"
+script/source = "extends Node3D
+
+func _ready() -> void:
+	$GPUParticles3D.emitting = true
+
+func _on_gpu_particles_3d_finished() -> void:
+	queue_free()
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0g8m"]
+no_depth_test = true
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+
+[sub_resource type="Gradient" id="Gradient_i1ohr"]
+colors = PackedColorArray(1, 0, 0, 1, 1.6695503, 0.8924332, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_11x1m"]
+gradient = SubResource("Gradient_i1ohr")
+
+[sub_resource type="Curve" id="Curve_h5lpo"]
+_data = [Vector2(0, 0), 0.0, 1.4, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_54ype"]
+curve = SubResource("Curve_h5lpo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qm2jf"]
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_54ype")
+color_ramp = SubResource("GradientTexture1D_11x1m")
+
+[sub_resource type="SphereMesh" id="SphereMesh_1wuud"]
+
+[node name="TestExplosion" type="Node3D" unique_id=803638386]
+script = SubResource("GDScript_usbyf")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1667597377]
+material_override = SubResource("StandardMaterial3D_r0g8m")
+emitting = false
+amount = 1
+lifetime = 0.09999999999999999
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_qm2jf")
+draw_pass_1 = SubResource("SphereMesh_1wuud")
+
+[connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]

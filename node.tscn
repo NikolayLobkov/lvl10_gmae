@@ -153,6 +153,7 @@ size = Vector3(5, 5, 5)
 [node name="Pools" type="Node" parent="." unique_id=67712728]
 
 [node name="ObjectPool" type="Node3D" parent="Pools" unique_id=638902891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)
 script = ExtResource("1_qn3nj")
 pool_size = 20
 scene = ExtResource("2_l6pdb")
@@ -173,7 +174,7 @@ navigation_mesh = SubResource("NavigationMesh_ok8na")
 
 [node name="Level" parent="NavigationRegion3D" unique_id=908312502 instance=ExtResource("2_e2u21")]
 
-[node name="TestLevel" parent="NavigationRegion3D/Level" index="53" unique_id=1214583650]
+[node name="TestLevel" parent="NavigationRegion3D/Level" index="53" unique_id=1627308626]
 visible = false
 
 [node name="Characters" type="Node3D" parent="." unique_id=1847898279]

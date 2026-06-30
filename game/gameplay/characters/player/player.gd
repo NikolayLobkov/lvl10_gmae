@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	movement_component._tick(delta)
 	move_and_slide()
 	
-	weapon_manager.shoot_target = aim_ray_cast.get_collision_point()
+	weapon_manager.shoot_target = aim_ray_cast.get_collision_point() if aim_ray_cast.is_colliding() else aim_ray_cast.to_global(aim_ray_cast.target_position)
 	
 	if input_component._attacking():
 		weapon_manager.weapon_attack()

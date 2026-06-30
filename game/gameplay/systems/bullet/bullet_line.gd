@@ -62,3 +62,4 @@ func _on_pooled_object_component_remove_commanded() -> void:
 	progress = 0.0
 	free_timer.stop()
 	hide()
+	position = Vector3.ZERO

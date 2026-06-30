@@ -36,6 +36,22 @@ default_speed = 15.0
 jump_force = 7.0
 metadata/_custom_type_script = "uid://bnviqnup0u4nf"
 
+[sub_resource type="GDScript" id="GDScript_6e10l"]
+script/source = "extends Node3D
+
+
+@onready var view_model: Node3D = $ViewModel
+
+var init_pos: float
+
+
+func _ready() -> void:
+	init_pos = view_model.position.y
+
+func _physics_process(_delta: float) -> void:
+	view_model.position.y = init_pos - sin(rotation.x) * 0.15
+"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c3hvl"]
 animation = &"Reload"
 
@@ -140,6 +156,7 @@ metadata/_custom_type_script = "uid://defy8uifcqmof"
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=149730806]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5359645, 0)
+script = SubResource("GDScript_6e10l")
 
 [node name="CameraEffects" type="Node" parent="CameraPivot" unique_id=1040710276]
 script = ExtResource("7_ir5h3")
@@ -197,7 +214,7 @@ script = ExtResource("10_07icc")
 [node name="EvaFPS" parent="Visual" unique_id=1459863779 instance=ExtResource("10_rfady")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Visual/EvaFPS/Armature" parent_id_path=PackedInt32Array(1459863779, 997552653) index="0" unique_id=721361725]
+[node name="Skeleton3D" parent="Visual/EvaFPS/Armature" parent_id_path=PackedInt32Array(1459863779, 1823074491) index="0" unique_id=761119809]
 bones/1/position = Vector3(0.37305748, -0.021231353, 2.353088)
 bones/1/rotation = Quaternion(-0.011635647, 0.9946942, -0.0011956127, -0.10220907)
 bones/2/rotation = Quaternion(0.008270955, 0.70705837, 0.7070584, -0.008270954)

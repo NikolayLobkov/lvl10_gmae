@@ -97,7 +97,18 @@ reload_weapon={
 
 [rendering]
 
+occlusion_culling/bvh_build_quality=1
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/ssao/quality=0
+environment/ssil/quality=0
+scaling_3d/mode=5
+scaling_3d/mode.ios=5
+scaling_3d/mode.macos=5
+textures/decals/filter=2
+textures/light_projectors/filter=2
+environment/glow/upscale_mode=0
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 occlusion_culling/use_occlusion_culling=true
+lights_and_shadows/positional_shadow/atlas_quadrant_2_subdiv=2
+lights_and_shadows/positional_shadow/atlas_quadrant_3_subdiv=2

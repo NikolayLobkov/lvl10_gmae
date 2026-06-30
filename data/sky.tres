@@ -1,0 +1,58 @@
+[gd_resource type="Sky" format=3 uid="uid://cgcl4otv24yby"]
+
+[ext_resource type="Shader" uid="uid://deo1hwpgkg0lq" path="res://assets/shaders/sky.gdshader" id="1_up8xu"]
+
+[sub_resource type="Gradient" id="Gradient_la5mv"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3umv8"]
+gradient = SubResource("Gradient_la5mv")
+
+[sub_resource type="Gradient" id="Gradient_qv2vy"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_p1837"]
+seed = 56357
+frequency = 0.0023
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ey15c"]
+noise = SubResource("FastNoiseLite_p1837")
+color_ramp = SubResource("Gradient_qv2vy")
+seamless = true
+in_3d_space = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8p4c"]
+shader = ExtResource("1_up8xu")
+shader_parameter/base_sky_texture = SubResource("GradientTexture2D_3umv8")
+shader_parameter/cloud_noise_texture = SubResource("NoiseTexture2D_ey15c")
+shader_parameter/sky_exposure = 1.63900007459262
+shader_parameter/sky_tint = Color(0.3063251, 0.3743776, 0.43281582, 1)
+shader_parameter/cloud_scale = 0.24
+shader_parameter/cloud_density = 0.118000005605
+shader_parameter/cloud_softness = 0.16
+shader_parameter/detail_strength = 0.510000024225
+shader_parameter/cloud_contrast = 1.35
+shader_parameter/cloud_bright_color = Color(1, 1, 1, 1)
+shader_parameter/cloud_mid_color = Color(0.82, 0.84, 0.88, 1)
+shader_parameter/cloud_dark_color = Color(0.39547375, 0.43259722, 0.5070549, 1)
+shader_parameter/cloud_brightness = 1.950000092625
+shader_parameter/atmosphere_blend = 0.442000020995
+shader_parameter/atmosphere_horizon_strength = 2.0
+shader_parameter/atmosphere_zenith_strength = 0.5190000246525
+shader_parameter/cloud_direction = Vector2(0, -1)
+shader_parameter/cloud_speed = 0.01
+shader_parameter/cloud_evolution_speed = 0.10000000149012
+shader_parameter/edge_warp_strength = 0.08
+shader_parameter/edge_warp_scale = 3.0
+shader_parameter/horizon_fade = 0.18
+shader_parameter/zenith_density = 1.0
+shader_parameter/horizon_blend = 0.35
+shader_parameter/sun_direction = Vector3(0.4, 0.5, 0.2)
+shader_parameter/sun_color = Color(1, 0.96, 0.88, 1)
+shader_parameter/sun_size = 0.004
+shader_parameter/sun_intensity = 14.0
+shader_parameter/random_light_strength = 0.4
+shader_parameter/random_light_scale = 0.7
+
+[resource]
+sky_material = SubResource("ShaderMaterial_o8p4c")

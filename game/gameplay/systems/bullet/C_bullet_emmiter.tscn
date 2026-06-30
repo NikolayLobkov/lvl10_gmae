@@ -37,7 +37,7 @@ func shoot(attack_data: AttackData = null) -> void:
 	hit_ray_cast.target_position = to_local(target)
 	hit_ray_cast.hit(attack_data)
 	#bullets_pool_manager.pool_create_object(global_position, to_local(target))
-	bullets_pool_manager.pool_create_object(global_position, Vector3.FORWARD * 1)
+	bullets_pool_manager.pool_create_object(global_position, Vector3.FORWARD * 3.0)
 	#$BulletLine._on_pooled_object_component_create_commanded([global_position, to_local(target)])
 	
 	#muzzle_flash.emit()

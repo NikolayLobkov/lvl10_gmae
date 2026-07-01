@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://dbn7nq347bfpw"]
+
+[ext_resource type="Script" uid="uid://wkslmpks6r7n" path="res://game/gameplay/characters/godzila/godzila.gd" id="1_3hxee"]
+[ext_resource type="PackedScene" uid="uid://c2rtpd1md2sww" path="res://assets/godzilla/Godzilla.glb" id="2_d5agb"]
+[ext_resource type="Script" uid="uid://ddjd7ulfbvnfd" path="res://game/gameplay/characters/godzila/animation_tree.gd" id="3_flcai"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fbffc"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cgk8u"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_fectn"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_fbffc")
+blend_point_0/pos = 0.0
+blend_point_0/name = &"Idle"
+blend_point_1/node = SubResource("AnimationNodeAnimation_cgk8u")
+blend_point_1/pos = 1.0
+blend_point_1/name = &"Walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sxkgj"]
+animation = &"Shoot"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m57t2"]
+animation = &"ShootPreparation"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4p7we"]
+animation = &"ShootPreparation"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qp3rp"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fjc4n"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ucuis"]
+xfade_time = 0.3
+advance_mode = 2
+advance_expression = "shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ingl6"]
+advance_mode = 2
+advance_expression = "not shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7vcsp"]
+xfade_time = 0.3
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_r3d3t"]
+states/Move/node = SubResource("AnimationNodeBlendSpace1D_fectn")
+states/Move/position = Vector2(414.33334, 116.66667)
+states/Shoot/node = SubResource("AnimationNodeAnimation_sxkgj")
+states/Shoot/position = Vector2(570.3333, -16)
+states/ShootPreparation/node = SubResource("AnimationNodeAnimation_4p7we")
+states/ShootPreparation/position = Vector2(374.33334, -16.888885)
+"states/ShootPreparation 2/node" = SubResource("AnimationNodeAnimation_m57t2")
+"states/ShootPreparation 2/position" = Vector2(745, -17.60494)
+transitions = ["ShootPreparation", "Shoot", SubResource("AnimationNodeStateMachineTransition_qp3rp"), "Start", "Move", SubResource("AnimationNodeStateMachineTransition_fjc4n"), "Move", "ShootPreparation", SubResource("AnimationNodeStateMachineTransition_ucuis"), "Shoot", "ShootPreparation 2", SubResource("AnimationNodeStateMachineTransition_ingl6"), "ShootPreparation 2", "Move", SubResource("AnimationNodeStateMachineTransition_7vcsp")]
+graph_offset = Vector2(73, -70)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fbffc"]
+size = Vector3(18, 50, 46)
+
+[node name="Godzila" type="CharacterBody3D" unique_id=1937829352]
+script = ExtResource("1_3hxee")
+
+[node name="Godzilla2" parent="." unique_id=515389110 instance=ExtResource("2_d5agb")]
+
+[node name="Skeleton3D" parent="Godzilla2/Armature" parent_id_path=PackedInt32Array(515389110, 1640259174) index="0" unique_id=93175772]
+bones/1/position = Vector3(1.8189898e-12, 4.056784, 1.1856463e-06)
+bones/1/rotation = Quaternion(0.4349597, 2.1468409e-07, 1.0370252e-07, 0.90044993)
+bones/2/rotation = Quaternion(0.14391366, 1.1796839e-07, 8.577925e-08, 0.9895902)
+bones/3/rotation = Quaternion(0.09184253, 3.5611555e-07, 9.8536326e-08, 0.99577355)
+bones/4/rotation = Quaternion(0.12188407, 6.251315e-13, 1.7435652e-07, 0.99254435)
+bones/5/rotation = Quaternion(0.3350558, 6.1650386e-13, 4.79301e-07, 0.9421983)
+bones/6/rotation = Quaternion(0.874075, 1.7126213e-05, 0.0022583245, 0.48578578)
+bones/7/rotation = Quaternion(-0.1345592, 0.009563968, -0.028423605, 0.99045163)
+bones/8/rotation = Quaternion(0.874075, -1.7342663e-05, -0.0022579161, 0.48578578)
+bones/9/rotation = Quaternion(-0.13455923, -0.009563967, 0.028423624, 0.99045163)
+bones/10/rotation = Quaternion(0.99607396, -3.1659148e-08, 1.1874101e-07, 0.08852534)
+bones/11/rotation = Quaternion(0.17307012, -3.08862e-14, -4.1263085e-08, 0.98490953)
+bones/12/rotation = Quaternion(0.31326288, 1.1320897e-07, -3.7343767e-08, 0.94966644)
+bones/13/rotation = Quaternion(0.3371795, -5.781414e-14, 2.8165616e-14, 0.9414404)
+bones/14/rotation = Quaternion(0.98092455, 0.028241672, -0.004593133, 0.19227158)
+bones/15/rotation = Quaternion(0.44306052, -0.0031776167, 0.061933942, 0.8943443)
+bones/16/rotation = Quaternion(-0.6276373, 0.022496833, -0.031779595, 0.7775316)
+bones/17/rotation = Quaternion(0.98092455, -0.028241672, 0.004593133, 0.19227158)
+bones/18/rotation = Quaternion(0.44306052, 0.0031776167, -0.061933942, 0.8943443)
+bones/19/rotation = Quaternion(-0.6276373, -0.022496833, 0.031779595, 0.7775316)
+
+[node name="LookAtModifier3D" type="LookAtModifier3D" parent="Godzilla2/Armature/Skeleton3D" index="1" unique_id=191238543]
+target_node = NodePath("../../../../Marker3D")
+bone_name = "Body1"
+bone = 2
+forward_axis = 2
+primary_rotation_axis = 0
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=370384825]
+root_node = NodePath("../Godzilla2")
+tree_root = SubResource("AnimationNodeStateMachine_r3d3t")
+anim_player = NodePath("../Godzilla2/AnimationPlayer")
+parameters/Move/blend_position = 3.199974846331097e-240
+script = ExtResource("3_flcai")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1947798666]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48, 63)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1115462272]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 4)
+shape = SubResource("BoxShape3D_fbffc")
+
+[editable path="Godzilla2"]

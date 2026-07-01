@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cnu4jtync2bwi"]
+
+[ext_resource type="Texture2D" uid="uid://blmlq10871hhs" path="res://assets/godzilla/Godzilla_godzilla_body.png" id="1_jcac0"]
+
+[resource]
+albedo_texture = ExtResource("1_jcac0")
+metallic_specular = 0.0
+texture_filter = 2
+texture_repeat = false

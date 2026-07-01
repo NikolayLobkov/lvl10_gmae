@@ -1,5 +1,5 @@
-extends CharacterBody3D
-class_name Char
+class_name Char extends CharacterBody3D
+
 
 @export var movement: MovementComponent
 @export var health: HealthComponent
@@ -26,7 +26,7 @@ func _ready():
 		ai.actor = self
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	if health and health.dead:
 		return
 

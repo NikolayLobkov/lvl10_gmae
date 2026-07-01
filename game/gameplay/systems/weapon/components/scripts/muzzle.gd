@@ -7,7 +7,6 @@ extends WeaponComponent3D
 func _shoot_request() -> void: pass
 func _shoot_process(attack_data: AttackData) -> void:
 	bullet_emmiter.shoot(attack_data)
-	print('SHOOT')
 	$MuzzleFlash.emit()
 func _message(_message_name: StringName, _args: Array) -> void:
 	pass

@@ -10,6 +10,10 @@ animation = &"Idle"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cgk8u"]
 animation = &"Walk"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_flcai"]
+animation = &"Walk"
+play_mode = 1
+
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_fectn"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_fbffc")
 blend_point_0/pos = 0.0
@@ -17,6 +21,9 @@ blend_point_0/name = &"Idle"
 blend_point_1/node = SubResource("AnimationNodeAnimation_cgk8u")
 blend_point_1/pos = 1.0
 blend_point_1/name = &"Walk"
+blend_point_2/node = SubResource("AnimationNodeAnimation_flcai")
+blend_point_2/pos = -1.0
+blend_point_2/name = &"Walk 2"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sxkgj"]
 animation = &"Shoot"
@@ -70,26 +77,27 @@ script = ExtResource("1_3hxee")
 [node name="Godzilla2" parent="." unique_id=515389110 instance=ExtResource("2_d5agb")]
 
 [node name="Skeleton3D" parent="Godzilla2/Armature" parent_id_path=PackedInt32Array(515389110, 1640259174) index="0" unique_id=93175772]
-bones/1/position = Vector3(1.8189898e-12, 4.056784, 1.1856463e-06)
-bones/1/rotation = Quaternion(0.4349597, 2.1468409e-07, 1.0370252e-07, 0.90044993)
-bones/2/rotation = Quaternion(0.14391366, 1.1796839e-07, 8.577925e-08, 0.9895902)
-bones/3/rotation = Quaternion(0.09184253, 3.5611555e-07, 9.8536326e-08, 0.99577355)
-bones/4/rotation = Quaternion(0.12188407, 6.251315e-13, 1.7435652e-07, 0.99254435)
-bones/5/rotation = Quaternion(0.3350558, 6.1650386e-13, 4.79301e-07, 0.9421983)
-bones/6/rotation = Quaternion(0.874075, 1.7126213e-05, 0.0022583245, 0.48578578)
-bones/7/rotation = Quaternion(-0.1345592, 0.009563968, -0.028423605, 0.99045163)
-bones/8/rotation = Quaternion(0.874075, -1.7342663e-05, -0.0022579161, 0.48578578)
-bones/9/rotation = Quaternion(-0.13455923, -0.009563967, 0.028423624, 0.99045163)
-bones/10/rotation = Quaternion(0.99607396, -3.1659148e-08, 1.1874101e-07, 0.08852534)
-bones/11/rotation = Quaternion(0.17307012, -3.08862e-14, -4.1263085e-08, 0.98490953)
-bones/12/rotation = Quaternion(0.31326288, 1.1320897e-07, -3.7343767e-08, 0.94966644)
-bones/13/rotation = Quaternion(0.3371795, -5.781414e-14, 2.8165616e-14, 0.9414404)
-bones/14/rotation = Quaternion(0.98092455, 0.028241672, -0.004593133, 0.19227158)
-bones/15/rotation = Quaternion(0.44306052, -0.0031776167, 0.061933942, 0.8943443)
-bones/16/rotation = Quaternion(-0.6276373, 0.022496833, -0.031779595, 0.7775316)
-bones/17/rotation = Quaternion(0.98092455, -0.028241672, 0.004593133, 0.19227158)
-bones/18/rotation = Quaternion(0.44306052, 0.0031776167, -0.061933942, 0.8943443)
-bones/19/rotation = Quaternion(-0.6276373, -0.022496833, 0.031779595, 0.7775316)
+bones/0/position = Vector3(0, 29.374043, 0)
+bones/1/position = Vector3(1.0852302e-06, 2.60406, -4.1723268e-07)
+bones/1/rotation = Quaternion(0.65684456, 7.9210866e-07, -6.4815964e-07, 0.75402606)
+bones/2/rotation = Quaternion(-0.0014768697, 9.529515e-08, 1.3450649e-06, 0.999999)
+bones/3/rotation = Quaternion(-0.010492327, 3.3696955e-07, 1.0103435e-06, 0.99994504)
+bones/4/rotation = Quaternion(-0.17493647, -1.023944e-07, 5.835895e-07, 0.9845798)
+bones/5/rotation = Quaternion(0.55556124, 2.347222e-07, 1.3468423e-07, 0.8314757)
+bones/6/rotation = Quaternion(0.83754605, 0.024703063, -0.14226803, 0.5269405)
+bones/7/rotation = Quaternion(-0.0023475464, 0.0068416446, -0.00094188773, 0.9999735)
+bones/8/rotation = Quaternion(0.83754593, -0.024703287, 0.14226848, 0.52694064)
+bones/9/rotation = Quaternion(-0.0022783927, -0.006187164, 0.000781919, 0.999978)
+bones/10/rotation = Quaternion(0.9752768, -8.1809844e-08, 2.1223362e-07, 0.22098671)
+bones/11/rotation = Quaternion(0.17185822, 1.0171508e-10, -4.1552138e-08, 0.9851217)
+bones/12/rotation = Quaternion(0.27931654, 1.1446463e-07, -3.3297198e-08, 0.9601992)
+bones/13/rotation = Quaternion(0.304127, -2.3402002e-14, -7.259649e-14, 0.9526315)
+bones/14/rotation = Quaternion(0.9793692, 0.030658022, -0.0046251314, 0.19968644)
+bones/15/rotation = Quaternion(0.48091197, -0.00097135396, 0.06588446, 0.8742895)
+bones/16/rotation = Quaternion(-0.6482054, 0.022830786, -0.03179322, 0.7604589)
+bones/17/rotation = Quaternion(0.9793692, -0.030658023, 0.0046251323, 0.19968645)
+bones/18/rotation = Quaternion(0.48091197, 0.0009713599, -0.06588448, 0.8742895)
+bones/19/rotation = Quaternion(-0.6482054, -0.022830786, 0.03179321, 0.7604589)
 
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="Godzilla2/Armature/Skeleton3D" index="1" unique_id=191238543]
 target_node = NodePath("../../../../Marker3D")
@@ -102,14 +110,16 @@ primary_rotation_axis = 0
 root_node = NodePath("../Godzilla2")
 tree_root = SubResource("AnimationNodeStateMachine_r3d3t")
 anim_player = NodePath("../Godzilla2/AnimationPlayer")
-parameters/Move/blend_position = 3.199974846331097e-240
+parameters/Move/blend_position = 2.638794099489301e-307
 script = ExtResource("3_flcai")
+shooting = true
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=1947798666]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48, 63)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 42.08069, 61.307262)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1115462272]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 4)
+visible = false
 shape = SubResource("BoxShape3D_fbffc")
 
 [editable path="Godzilla2"]
